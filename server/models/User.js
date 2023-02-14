@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const {playlistQuestionSchema, songQuestionSchema} = require('./questions');
+
 
 const userSchema = new Schema({
   username: {
@@ -33,9 +35,9 @@ const userSchema = new Schema({
   lookingFor: {
     type: String,
   },
-  songAnswers: songAnswerSchema,
+  songAnswers: songQuestionSchema,
 
-  playlistAnswers: playlistAnswerSchema,
+  playlistAnswers: playlistQuestionSchema,
 
   });
 
