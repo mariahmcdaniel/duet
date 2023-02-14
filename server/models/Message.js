@@ -1,18 +1,15 @@
 const { Schema, model } = require('mongoose');
 
 const messageSchema = new Schema({
-    messageId: {
-        type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId(),
-    },
     text: {
         type: String,
         required: true,
-        maxlength: 150
+        min: 1,
+        max: 100
     },
     users: [{
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User'
     }],
     createdAt: {
         type: Date,
@@ -22,10 +19,12 @@ const messageSchema = new Schema({
 },
 {
     toJSON: {
-        virtuals: true,
         getters: true
     },
     id: false,
 })
 
-module.exports = messageSchema;
+const Message = model('Message', matchSchema);
+
+
+module.exports = Message;
