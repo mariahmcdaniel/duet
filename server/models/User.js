@@ -18,8 +18,26 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 5,
-  }
-});
+  },
+  dateOfBirth: {
+    type: Date,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  lookingFor: {
+    type: String,
+  },
+  songAnswers: songAnswerSchema,
+
+  playlistAnswers: playlistAnswerSchema,
+
+  });
 
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
