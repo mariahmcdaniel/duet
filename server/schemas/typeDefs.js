@@ -33,9 +33,9 @@ const typeDefs = gql`
   }
 
   type PlaylistAnswers {
-    playlistquestion1: Number!
-    playlistquestion2: Number!
-    playlistquestion3: Number!
+    playlistquestion1: Int!
+    playlistquestion2: Int!
+    playlistquestion3: Int!
   }
 
   type Match {
@@ -74,9 +74,9 @@ const typeDefs = gql`
   }
 
   input PlaylistAnswersInput {
-    playlistquestion1: Number!
-    playlistquestion2: Number!
-    playlistquestion3: Number!
+    playlistquestion1: Int!
+    playlistquestion2: Int!
+    playlistquestion3: Int!
   }
 
   type Query {
