@@ -29,10 +29,10 @@ function App() {
       <Router>
     <Routes>
     <>
-        <Navbar />
-        <Routes>
+        {/* <Navbar /> */}
+        
           <Route
-            path='/'
+            path='/duet'
             element={<ProfileForm />}
           />
           {/* <Route
@@ -43,7 +43,7 @@ function App() {
             path='*'
             element={<h1 className='display-2'>Wrong page!</h1>}
           /> */}
-        </Routes>
+        
       </>
     </Routes>
     </Router>
