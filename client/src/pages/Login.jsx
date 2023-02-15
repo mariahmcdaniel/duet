@@ -50,23 +50,36 @@ const Login = () => {
     }
     return (
       <form onSubmit={handleFormSubmit}>
+        <fieldset>
+        <div className="form-group">
+        <label for="usernameinput" className="form-label mt-4">Username</label>
         <input
-          placeholder="Your email"
-          name="email"
-          type="email"
-          value={formState.email}
+        id="usernameinput"
+        className="form-control"
+          placeholder="Your username"
+          name="username"
+          type="username"
+          value={formState.username}
           onChange={handleChange}
+
         />
+        </div>
+        <div className="form-group">
+        <label for="usernameinput" className="form-label mt-4">Username</label>
         <input
+        id="passwordinput"
+        className="form-control"
           placeholder="******"
           name="password"
           type="password"
           value={formState.password}
           onChange={handleChange}
         />
+        </div>
         <button type="submit">
           Submit
         </button>
+        </fieldset>
       </form>
     );
   };

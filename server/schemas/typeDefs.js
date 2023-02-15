@@ -6,25 +6,55 @@ const typeDefs = gql`
   username: String!
   email: String!
   password: String!
-  dateOfBirth: String
+  age: String
   city: String
   state: String
-  lookingFor: String
-  songAnswers: [String]
-  playlistAnswers: [String]
+  interestedIn: String
+  gender: String
+  pronouns: String
+  photo: String
+  songAnswers: SongAnswers
+  playlistAnswers: PlaylistAnswers
+  }
+
+  type Answer {
+    artist: String!
+    track: String!
+    songClip: String!
+  }
+
+  type SongAnswers {
+    songquestion1: Answer!
+    songquestion2: Answer!
+    songquestion3: Answer!
+    songquestion4: Answer!
+    songquestion5: Answer!
+    songquestion6: Answer!
+    songquestion7: Answer!
+    songquestion8: Answer!
+    songquestion9: Answer!
+    songquestion10: Answer!
+    songquestion11: Answer!
+    songquestion12: Answer!
+  }
+
+  type PlaylistAnswers {
+    playlistquestion1: Int!
+    playlistquestion2: Int!
+    playlistquestion3: Int!
   }
 
   type Match {
     _id: ID
-    sender: ID
-    receiver: ID
+    sender: User
+    receiver: User
     status: Int
-    messages: ID
+    messages: [Message]
   }
 
   type Message {
     text: String
-    users: ID,
+    sender: User,
     createdAt: String
     }
 
@@ -33,11 +63,38 @@ const typeDefs = gql`
     user: User
   }
 
+  input AnswerInput {
+    artist: String!
+    track: String!
+    songClip: String!
+  }
+
+  input SongAnswersInput {
+    songquestion1: AnswerInput!
+    songquestion2: AnswerInput!
+    songquestion3: AnswerInput!
+    songquestion4: AnswerInput!
+    songquestion5: AnswerInput!
+    songquestion6: AnswerInput!
+    songquestion7: AnswerInput!
+    songquestion8: AnswerInput!
+    songquestion9: AnswerInput!
+    songquestion10: AnswerInput!
+    songquestion11: AnswerInput!
+    songquestion12: AnswerInput!
+  }
+
+  input PlaylistAnswersInput {
+    playlistquestion1: Int!
+    playlistquestion2: Int!
+    playlistquestion3: Int!
+  }
+
   type Query {
     users: [User]!
     user(id: ID!): User
     me: User
-    messages: Message
+    matches: [Match]
   }
 
   type Mutation {
@@ -45,16 +102,19 @@ const typeDefs = gql`
       email: String!, 
       username: String!, 
       password: String!,
-      dateOfBirth: String,
+      age: String,
       city: String,
       state: String,
-      lookingFor: String,
-      songAnswers: [String],
-      playlistAnswers: [String],
+      interestedIn: String,
+      gender: String,
+      pronouns: String
       ): Auth
+    updateAnswers(songAnswers: SongAnswersInput!): User
+    updatePlaylist(playlistAnswers: PlaylistAnswersInput!): User
+    updatePhoto(photo: String!): User
     login(username: String!, password: String!): Auth
-    createMatch(userId: ID): Match
-    createMessage(text: String!): Message
+    createMatch(userId: ID!): Match
+    createMessage(matchId: ID!, text: String!): Message
   }
 `;
 

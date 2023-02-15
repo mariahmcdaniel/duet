@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import { QUERY_USERS, QUERY_USER, QUERY_ME } from '../utils/queries';
 // Components
-import UserList from '../components/UserList';
+import UserList from './PotentialMatches';
 
 const Profile = () => {
   const { id } = useParams();
