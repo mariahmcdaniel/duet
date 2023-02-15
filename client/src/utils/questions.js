@@ -1,4 +1,4 @@
-
+const songQuestions = 
 [
   {
     1: "You've had a long day but you really need to get a workout in. What song gets you ready to hit the gym"
@@ -37,3 +37,15 @@
     12: "You and your special someone are having a romantic date night together at home. What song would you play to set the mood"
   }
 ]
+
+const playlistQuestions =
+[
+  {
+    1: "You are spending the day on the water for a pontoon party! You can only bring one of these playlists with you. which one?"
+  },
+
+]
+
+const albumQuestion = "What is your favorite album cover of all time?"
+
+export default { songQuestions, playlistQuestions, albumQuestion };
