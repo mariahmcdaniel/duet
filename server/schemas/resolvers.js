@@ -1,4 +1,4 @@
-const { AuthenticationError } = require('apollo-server-express');
+const { AuthenticationError, ApolloError } = require('apollo-server-express');
 const { User, Match, Message } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -55,16 +55,20 @@ const resolvers = {
     },
     // userId is person you(user) has clicked check
     createMatch: async (_, { userId }, context) => {
-      const match = await Match.findOne({ receiver: context.user._id, sender: userId })
-      if (match) {
+      if(userId === context.user._id) return new ApolloError("You can't match with yourself!");
 
-        Match.findOneAndUpdate(
-          { receiver: context.user._id, sender: userId },
-          { $set: { status: 1 } },
-          { new: true })
+      const checkMatch = await Match.findOne({ sender: context.user._id, receiver: userId });
+      if(checkMatch) return new ApolloError("You've already matched with this user");
+
+      let match = await Match.findOneAndUpdate({ receiver: context.user._id, sender: userId },{ $set: { status: 1 }}, { new: true })
+      if (match) {
+       match = await match.populate('sender');
+       match = await match.populate('receiver');
+       console.log(match)
+       return match;
       }
       return await Match.create({
-        sender: context.user.id,
+        sender: context.user._id,
         receiver: userId,
         status: 0,
       });
@@ -73,7 +77,7 @@ const resolvers = {
         if (context.user) {
           const message = await Message.create({ sender: context.user._id, text: args.text });
           const match = await Match.findOneAndUpdate({ _id: args.matchId }, { $push: { messages: message._id } });
-          return message;
+          return message.populate('sender');
         } else {
           throw new AuthenticationError('You must be logged in to send messages');
         }
