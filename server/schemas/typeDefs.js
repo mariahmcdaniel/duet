@@ -9,9 +9,33 @@ const typeDefs = gql`
   dateOfBirth: String
   city: String
   state: String
-  lookingFor: String
-  songAnswers: [String]
-  playlistAnswers: [String]
+  interestedIn: String
+  gender: String
+  pronouns: String
+  songAnswers: SongAnswers
+  playlistAnswers: PlaylistAnswers
+  }
+
+  type Answer {
+    artist: String!
+    track: String!
+    songClip: String!
+  }
+
+  type SongAnswers {
+    songquestion1: Answer!
+    songquestion2: Answer!
+    songquestion3: Answer!
+    songquestion4: Answer!
+    songquestion5: Answer!
+    songquestion6: Answer!
+    songquestion7: Answer!
+  }
+
+  type PlaylistAnswers {
+    playlistquestion1: Number!
+    playlistquestion2: Number!
+    playlistquestion3: Number!
   }
 
   type Match {
@@ -33,6 +57,28 @@ const typeDefs = gql`
     user: User
   }
 
+  input AnswerInput {
+    artist: String!
+    track: String!
+    songClip: String!
+  }
+
+  input SongAnswersInput {
+    songquestion1: AnswerInput!
+    songquestion2: AnswerInput!
+    songquestion3: AnswerInput!
+    songquestion4: AnswerInput!
+    songquestion5: AnswerInput!
+    songquestion6: AnswerInput!
+    songquestion7: AnswerInput!
+  }
+
+  input PlaylistAnswersInput {
+    playlistquestion1: Number!
+    playlistquestion2: Number!
+    playlistquestion3: Number!
+  }
+
   type Query {
     users: [User]!
     user(id: ID!): User
@@ -48,10 +94,10 @@ const typeDefs = gql`
       dateOfBirth: String,
       city: String,
       state: String,
-      lookingFor: String,
-      songAnswers: [String],
-      playlistAnswers: [String],
+      interestedIn: String,
       ): Auth
+    updateAnswers(songAnswers: SongAnswersInput!): User
+    updatePlaylist(playlistAnswers: PlaylistAnswersInput!): User
     login(username: String!, password: String!): Auth
     createMatch(userId: ID!): Match
     createMessage(matchId: ID!, text: String!): Message
