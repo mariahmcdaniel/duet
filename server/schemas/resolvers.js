@@ -1,42 +1,30 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Match, Message } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    searchUsers: async (_parent, args) => {
-      const search = args.term;
-      const rgx = (pattern) => new RegExp(`.*${pattern}.*`);
-      const searchRgx = rgx(search);
-      return User.find({
-        $or: [
-          {
-            email: {
-              $regex: searchRgx,
-              $options: 'i',
-            },
-          },
-          {
-            username: {
-              $regex: searchRgx,
-              $options: 'i',
-            }
-          },
-        ]
-      });
-    },
     users: async () => {
-      return User.find();
+      return await User.find();
     },
     user: async (_, args) => {
-      return User.findOne({ _id: args.id });
+      return await User.findOne({ _id: args.id });
     },
     me: async (_, _args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return await User.findOne({ _id: context.user._id })
+          // .populate('Match');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    messages: async (_, args, context) => {
+      if (context.user) {
+        return await Match.findOne({ _id: args.id })
+          .populate('messages')
+          .populate('sender')
+          .populate('receiver')
+      }
+    }
   },
 
   Mutation: {
@@ -45,11 +33,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    login: async (_, { email, username, password }) => {
-      const user = await User.findOne(email ? { email } : { username });
+    login: async (_, { username, password }) => {
+      const user = await User.findOne({ username });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError('This username does not exist!');
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -61,6 +49,25 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    // userId is person you(user) has clicked check
+    createMatch: async (_, { userId }, context) => {
+      const match = await Match.findOne({ receiver: context.user._id })
+      if (match) {
+
+        Match.findOneAndUpdate(
+          { receiver: context.user._id },
+          { $set: { status: 1 } },
+          { new: true })
+      }
+      return await Match.create({
+        sender: context.user.id,
+        receiver: userId,
+        status: 0,
+      });
+    },
+    createMessage: async (_, args, context) => {
+
     }
   }
 };
