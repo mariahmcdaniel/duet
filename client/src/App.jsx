@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import "bootswatch/dist/quartz/bootstrap.min.css";
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProfileForm from './components/CreateProfile'
+import ProfileForm from './pages/CreateProfile'
 
 const httpLink = createHttpLink({uri: '/graphql'});
 
