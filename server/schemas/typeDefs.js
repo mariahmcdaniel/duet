@@ -35,13 +35,25 @@ const typeDefs = gql`
   type Query {
     users: [User]!
     user(id: ID!): User
-    searchUsers(term: String!): [User]!
     me: User
+    messages: Message
   }
 
   type Mutation {
-    addUser(email:String!, username:String!, password:String!): Auth
-    login(email:String!, password:String!): Auth
+    addUser(
+      email: String!, 
+      username: String!, 
+      password: String!,
+      dateOfBirth: Date,
+      city: String,
+      state: String,
+      lookingFor: String,
+      songAnswers: [String],
+      playlistAnswers: [String],
+      ): Auth
+    login(username: String!, password: String!): Auth
+    createMatch(userId: ID, status: Number, messageId: ID): Match
+    createMessage(text: String!, userId: ID): Message
   }
 `;
 
