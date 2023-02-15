@@ -13,8 +13,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation AddUser($email: String!, $username: String!, $password: String!, $dateOfBirth: String, $city: String, $state: String, $interestedIn: String) {
-  addUser(email: $email, username: $username, password: $password, dateOfBirth: $dateOfBirth, city: $city, state: $state, interestedIn: $interestedIn) {
+  mutation AddUser($email: String!, $username: String!, $password: String!, $dateOfBirth: String, $city: String, $state: String, $interestedIn: String, $gender: String, $pronouns: String) {
+  addUser(email: $email, username: $username, password: $password, age: $age, city: $city, state: $state, interestedIn: $interestedIn, gender: $gender, pronouns: $pronouns) {
     token
     user {
       _id
@@ -79,3 +79,12 @@ mutation CreateMessage($matchId: ID!, $text: String!) {
   }
 }
 `;
+
+export const ADD_PHOTO = gql`
+  mutation addPhoto($photo: String!) {
+  updatePhoto(photo: $photo) {
+    _id
+    username
+  }
+}
+`

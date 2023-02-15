@@ -21,8 +21,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  dateOfBirth: {
-    type: Date,
+  age: {
+    type: Number,
   },
   city: {
     type: String,
@@ -39,6 +39,9 @@ const userSchema = new Schema({
     type: String
   },
   pronouns: {
+    type: String
+  },
+  photo: {
     type: String
   },
   songAnswers: songQuestionSchema,

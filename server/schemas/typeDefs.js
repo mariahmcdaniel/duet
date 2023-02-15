@@ -6,12 +6,13 @@ const typeDefs = gql`
   username: String!
   email: String!
   password: String!
-  dateOfBirth: String
+  age: String
   city: String
   state: String
   interestedIn: String
   gender: String
   pronouns: String
+  photo: String
   songAnswers: SongAnswers
   playlistAnswers: PlaylistAnswers
   }
@@ -30,6 +31,11 @@ const typeDefs = gql`
     songquestion5: Answer!
     songquestion6: Answer!
     songquestion7: Answer!
+    songquestion8: Answer!
+    songquestion9: Answer!
+    songquestion10: Answer!
+    songquestion11: Answer!
+    songquestion12: Answer!
   }
 
   type PlaylistAnswers {
@@ -71,6 +77,11 @@ const typeDefs = gql`
     songquestion5: AnswerInput!
     songquestion6: AnswerInput!
     songquestion7: AnswerInput!
+    songquestion8: AnswerInput!
+    songquestion9: AnswerInput!
+    songquestion10: AnswerInput!
+    songquestion11: AnswerInput!
+    songquestion12: AnswerInput!
   }
 
   input PlaylistAnswersInput {
@@ -91,13 +102,16 @@ const typeDefs = gql`
       email: String!, 
       username: String!, 
       password: String!,
-      dateOfBirth: String,
+      age: String,
       city: String,
       state: String,
       interestedIn: String,
+      gender: String,
+      pronouns: String
       ): Auth
     updateAnswers(songAnswers: SongAnswersInput!): User
     updatePlaylist(playlistAnswers: PlaylistAnswersInput!): User
+    updatePhoto(photo: String!): User
     login(username: String!, password: String!): Auth
     createMatch(userId: ID!): Match
     createMessage(matchId: ID!, text: String!): Message
