@@ -59,6 +59,17 @@ const resolvers = {
         throw new AuthenticationError('You must be logged in to send messages');
       }
     },
+    updatePhoto: async (_, args, context) => {
+      console.log(args)
+      if (context.user) {
+        return await User.findOneAndUpdate(
+          { _id: context.user._id }, 
+          { photo: args }, 
+          { new: true })
+      } else {
+        throw new AuthenticationError('You must be logged in to send messages');
+      }
+    },
     login: async (_, { username, password }) => {
       const user = await User.findOne({ username });
 

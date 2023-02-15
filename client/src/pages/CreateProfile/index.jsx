@@ -1,9 +1,46 @@
-import React from 'react';
+import { useState } from "react";
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const ProfileForm = () => {
+  const [userFormData, setUserFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    age: '',
+    city: '',
+    state: '',
+    interestedIn: '',
+    gender: '',
+    pronouns: ''
+  });
+  const [ addUser, {error} ] = useMutation(ADD_USER);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(userFormData);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+
 	return (
 		<main>
-			<form>
+			<form onSubmit={handleFormSubmit}>
   <fieldset>
     
     <div className="form-group">
