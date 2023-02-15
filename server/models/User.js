@@ -35,9 +35,9 @@ const userSchema = new Schema({
   lookingFor: {
     type: String,
   },
-  songAnswers: songQuestionSchema,
+  songAnswers: [songQuestionSchema],
 
-  playlistAnswers: playlistQuestionSchema,
+  playlistAnswers: [playlistQuestionSchema],
 
   });
 

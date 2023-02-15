@@ -13,16 +13,16 @@ const resolvers = {
     me: async (_, _args, context) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id })
-        .populate('Match');
+          // .populate('Match');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
     messages: async (_, args, context) => {
       if (context.user) {
-        return await Match.findOne({_id: args.id})
-        .populate('messages')
-        .populate('sender')
-        .populate('receiver')
+        return await Match.findOne({ _id: args.id })
+          .populate('messages')
+          .populate('sender')
+          .populate('receiver')
       }
     }
   },
@@ -49,6 +49,25 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    // userId is person you(user) has clicked check
+    createMatch: async (_, { userId }, context) => {
+      const match = await Match.findOne({ receiver: context.user._id })
+      if (match) {
+
+        Match.findOneAndUpdate(
+          { receiver: context.user._id },
+          { $set: { status: 1 } },
+          { new: true })
+      }
+      return await Match.create({
+        sender: context.user.id,
+        receiver: userId,
+        status: 0,
+      });
+    },
+    createMessage: async (_, args, context) => {
+
     }
   }
 };
