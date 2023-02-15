@@ -16,15 +16,15 @@ const typeDefs = gql`
 
   type Match {
     _id: ID
-    sender: ID
-    receiver: ID
+    sender: User
+    receiver: User
     status: Int
-    messages: ID
+    messages: [Message]
   }
 
   type Message {
     text: String
-    users: ID,
+    sender: User,
     createdAt: String
     }
 
@@ -37,7 +37,7 @@ const typeDefs = gql`
     users: [User]!
     user(id: ID!): User
     me: User
-    messages: Message
+    matches: [Match]
   }
 
   type Mutation {
@@ -53,8 +53,8 @@ const typeDefs = gql`
       playlistAnswers: [String],
       ): Auth
     login(username: String!, password: String!): Auth
-    createMatch(userId: ID): Match
-    createMessage(text: String!): Message
+    createMatch(userId: ID!): Match
+    createMessage(matchId: ID!, text: String!): Message
   }
 `;
 

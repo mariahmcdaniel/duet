@@ -14,10 +14,10 @@ const matchSchema = new Schema({
 		min: 0,
 		max: 2,
 	},
-	messages: {
+	messages:[{
 		type: Schema.Types.ObjectId,
 		ref: 'Message',
-	},
+	}],
 	
 });
 
