@@ -32,12 +32,18 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  lookingFor: {
+  interestedIn: {
     type: String,
   },
-  songAnswers: [songQuestionSchema],
+  gender: {
+    type: String
+  },
+  pronouns: {
+    type: String
+  },
+  songAnswers: songQuestionSchema,
 
-  playlistAnswers: [playlistQuestionSchema],
+  playlistAnswers: playlistQuestionSchema,
 
   });
 
