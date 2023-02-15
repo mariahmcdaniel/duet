@@ -5,11 +5,12 @@ export const QUERY_USER = gql`
   user(id: $userId) {
     _id
     city
-    dateOfBirth
+    age
     email
     gender
     interestedIn
     password
+    photo
     playlistAnswers {
       playlistquestion1
       playlistquestion2
@@ -48,6 +49,31 @@ export const QUERY_USER = gql`
         track
       }
       songquestion7 {
+        artist
+        songClip
+        track
+      }
+      songquestion8 {
+        artist
+        songClip
+        track
+      }
+      songquestion9 {
+        artist
+        songClip
+        track
+      }
+      songquestion10 {
+        artist
+        songClip
+        track
+      }
+      songquestion11 {
+        artist
+        songClip
+        track
+      }
+      songquestion12 {
         artist
         songClip
         track
@@ -64,11 +90,12 @@ export const QUERY_USERS = gql`
   users {
     _id
     city
-    dateOfBirth
+    age
     email
     gender
     interestedIn
     password
+    photo
     playlistAnswers {
       playlistquestion1
       playlistquestion2
@@ -109,6 +136,31 @@ export const QUERY_USERS = gql`
         track
       }
       songquestion7 {
+        artist
+        songClip
+        track
+      }
+      songquestion8 {
+        artist
+        songClip
+        track
+      }
+      songquestion9 {
+        artist
+        songClip
+        track
+      }
+      songquestion10 {
+        artist
+        songClip
+        track
+      }
+      songquestion11 {
+        artist
+        songClip
+        track
+      }
+      songquestion12 {
         artist
         songClip
         track
@@ -123,7 +175,7 @@ export const QUERY_ME = gql`
   me {
     _id
     city
-    dateOfBirth
+    age
     email
     gender
     interestedIn
@@ -168,6 +220,31 @@ export const QUERY_ME = gql`
         track
       }
       songquestion7 {
+        artist
+        songClip
+        track
+      }
+      songquestion8 {
+        artist
+        songClip
+        track
+      }
+      songquestion9 {
+        artist
+        songClip
+        track
+      }
+      songquestion10 {
+        artist
+        songClip
+        track
+      }
+      songquestion11 {
+        artist
+        songClip
+        track
+      }
+      songquestion12 {
         artist
         songClip
         track
