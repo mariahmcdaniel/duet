@@ -48,7 +48,7 @@ const PhotoQuestion = () => {
         
         </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">Which Playlist for a Pontoon Party?</label>
+        <label htmlFor="pontoonPary" className="form-label mt-4">You are spending the day on the water for a pontoon party! You can only bring one of these playlists with you. which one?</label>
         <select
           className="form-select"
           id="pontoonParty"
@@ -65,7 +65,7 @@ const PhotoQuestion = () => {
 
       </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">Roadtrip Time!</label>
+        <label htmlFor="pronounSelect" className="form-label mt-4">If you were going through a tough breakup, which of these playlists would you listen to?</label>
         <select
           className="form-select"
           id="roadTrip"
@@ -82,7 +82,7 @@ const PhotoQuestion = () => {
         
         </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">Break-up Songs?</label>
+        <label htmlFor="breakup" className="form-label mt-4">Which one of these playlists would you choose for a roadtrip?</label>
         <select
           className="form-select"
           id="breakup"
