@@ -12,6 +12,7 @@ import UserList from './pages/PotentialMatches';
 import Header from './components/Header';
 import lgLogo from './Duet-Logo-lg.png';
 import PhotoQuestion from './pages/Photoquestion';
+import Home from './pages/Home/Home';
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -40,7 +41,7 @@ function App() {
         <Routes>
         <Route
             path='/'
-            element={<Login />}
+            element={<Home />}
           />
           <Route
             path='/createprofile'

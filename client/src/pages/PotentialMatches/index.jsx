@@ -33,8 +33,9 @@ const UserList = () => {
     <div className='container'>
       <div className='m-5'>
         {userList.map((user) => {
-          const question = questions.songQuestions[4];
+          const question = questions[4].text;
           const song = user.songAnswers;
+          console.log(song)
           return (
             <div key={user._id} className='card mb-3'>
               <img className='d-block user-select-none' src={user.photo} width='100%' height='200' role='img' />
@@ -45,7 +46,7 @@ const UserList = () => {
                 <p className='card-text'>Question: {question}</p>
               </div>
               <div className='d-flex justify-content-center mt-3'>
-                <p className='card-text'>Answer Goes Here {song}</p>
+                {/* <p className='card-text'>Answer Goes Here {song.four}</p> */}
               </div>
               <div className= 'd-flex justify-content-center mt-4'>
                 <button className='btn btn-info'>

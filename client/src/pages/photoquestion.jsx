@@ -6,15 +6,15 @@ import { UPDATE_PLAYLIST } from '../utils/mutations';
 const PhotoQuestion = () => {
   // const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    one: '',
-    two: '',
-    three: '',
+    one: 1,
+    two: 1,
+    three: 1,
   });
   const [updatePlaylist, { error }] = useMutation(UPDATE_PLAYLIST);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: parseInt(value) });
   };
 
   const handleFormSubmit = async (event) => {
@@ -60,7 +60,7 @@ const PhotoQuestion = () => {
         <select
           className="form-select"
           id="roadTrip"
-          name="one"
+          name="two"
           value={formData.two}
           onChange={handleChange}>
           <option>1</option>
@@ -77,7 +77,7 @@ const PhotoQuestion = () => {
         <select
           className="form-select"
           id="breakup"
-          name="one"
+          name="three"
           value={formData.three}
           onChange={handleChange}>
           <option>1</option>

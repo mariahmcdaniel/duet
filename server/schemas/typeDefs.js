@@ -85,9 +85,9 @@ const typeDefs = gql`
   }
 
   input PlaylistAnswersInput {
-    playlistquestion1: Int!
-    playlistquestion2: Int!
-    playlistquestion3: Int!
+    one: Int!
+    two: Int!
+    three: Int!
   }
 
   type Query {
