@@ -138,3 +138,28 @@ export const QUERY_MATCHES = gql`
 export const searchDeezerApi = (query) => {
   return fetch(`https://api.deezer.com/search?q=track:"${query}"`);
 };
+
+
+
+
+const findSong = async (song) => {
+
+  try{
+    
+    const response = await searchDeezerApi(song)
+
+    const { items } = await response.json()
+
+    const songInfo = items.map((song) => ({
+      title: song.title,
+      album: song.album,
+      artist: song.artist,
+      filename: song.preview,
+
+    }))
+    return songInfo
+  }catch (err) {
+    console.error(err);
+  }
+
+}
