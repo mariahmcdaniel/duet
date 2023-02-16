@@ -1,19 +1,20 @@
 import { useState } from 'react'
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client' 
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
 import "bootswatch/dist/quartz/bootstrap.min.css";
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProfileForm from './pages/CreateProfile'
+import CreateProfile from './pages/CreateProfile'
+import Questionaire from './pages/Questionaire'
 import Footer from './components/Footer'
 
-const httpLink = createHttpLink({uri: 'http://localhost:3001/graphql'});
+const httpLink = createHttpLink({ uri: '/graphql' });
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${ token }` : '',
+      authorization: token ? `Bearer ${token}` : '',
     }
   }
 });
@@ -26,28 +27,25 @@ const client = new ApolloClient({
 function App() {
 
   return (
-    <ApolloProvider client = {client}>
+    <ApolloProvider client={client}>
       <Router>
-    <Routes>
-    <>
         {/* <Navbar /> */}
-        
+        <Routes>
           <Route
             path='/duet'
-            element={<ProfileForm />}
+            element={<CreateProfile />}
           />
-          {/* <Route
-            path='/saved'
-            element={<SavedBooks />}
+          <Route
+            path='/quest'
+            element={<Questionaire />}
           />
           <Route
             path='*'
             element={<h1 className='display-2'>Wrong page!</h1>}
-          /> */}
+          />
+        </Routes>
         <Footer />
-      </>
-    </Routes>
-    </Router>
+      </Router>
     </ApolloProvider>
   )
 }

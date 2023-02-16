@@ -3,7 +3,8 @@ import "./style.css";
 import logo from './logo.png'
 
 const year = new Date().getFullYear();
-
+const Footer = () => {
+  
   return (
     <footer>
       <img id='footerLogo'
@@ -13,5 +14,7 @@ const year = new Date().getFullYear();
       {`Copyright © Duet ${year}`}
     </footer>
   );
+
+}
 
 export default Footer;
