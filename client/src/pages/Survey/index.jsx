@@ -3,14 +3,11 @@ import { surveyQuestions, playlistQuestions, albumQuestion } from "../../utils/q
 import { useMutation } from "@apollo/client";
 import {useNavigate} from "react-router-dom";
 import {UPDATE_ANSWERS, UPDATE_PLAYLIST, ADD_PHOTO } from "../../utils/mutations";
-import SearchResults from "../../components/searchResults";
+import searchDeezerApi from "../../utils/queries";
 
  
 const [currentQuestion, setCurrentQuestion] = useState("");
-const [response, setResponse] = useState("");
-
-const songQs = surveyQuestions;
-const playlistQs = playlistQuestions;
+const [searchResults, setSearchResults] = useState("");
 
 
 //- container for changing questions
@@ -19,27 +16,101 @@ const playlistQs = playlistQuestions;
 
 
 const MusicAnswers = () =>{
-  const  songAndArtist = []
   const songAnswers = []
   const playlistAnswers = []
   const albumAnswer = []
+}
+
+const renderSongQuestions = () => {
+  return songQuestions.map((question) => {
+    <p className="surveyQuestion" id={surveyQuestions.indexOf(question)+1}>{question}</p>
+  })
+};
+
+  const [searchedBooks, setSearchedBooks] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+
+  const [savedSongIds, setSavedSongIds] = useState(getSavedBookIds());
+  const [saveSong, { error } ] = useMutation(UPDATE_ANSWERS);
+  const [savePlaylist, { err } ] = useMutation(UPDATE_PLAYLIST);
+  const [saveAlbum, { er } ] = useMutation(ADD_PHOTO);
+
+  useEffect(() => {
+    return () => saveBookIds(savedBookIds);
+  });
 
 
-  const handleFormSubmit = () => {
-    const [artist, setOptions] = useState(null);
-	// add another useState hook
-	const [questionCategory, setQuestionCategory] = useState("");
-	useEffect(() => {
-	    const apiUrl = `https://opentdb.com/api_category.php`;
-	
-	    fetch(apiUrl)
-	      .then((res) => res.json())
-	      .then((response) => {
-	        setOptions(response.trivia_categories);
-	      });
-	  }, [setOptions]);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-  }
+    if (!songInput) {
+      return false;
+    }
+
+    try {
+      const response = await searchDeezerApi(songInput);
+
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+
+      const { items } = await response.json();
+
+      const songData = items.map((song) => (
+        `songquestion${cursor}:`+{
+        id: song.id,
+        title: song.title,
+        artist: song.artist,
+        songClip: song.preview,  
+        }
+      ));
+
+      setSearchResults(songData);
+      setSearchInput('');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleSaveSong = async (id) => {
+    const songToSave = searchResults.find((song) => song.id === id);
+
+    try {      
+      const { data } = await saveSong({
+        variables: songToSave,
+      });
+
+
+      if (!data) {
+        throw new Error('something went wrong!');
+      }
+      setSavedSongIds([...savedSongIds, songToSave.id]);
+      
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleSavePlaylist = async (id) => {
+    const songToSave = searchResults.find((song) => song.id === id);
+
+    try {      
+      const { data } = await saveSong({
+        variables: songToSave,
+      });
+
+
+      if (!data) {
+        throw new Error('something went wrong!');
+      }
+      setSavedSongIds([...savedSongIds, songToSave.id]);
+      
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
 
  return (
@@ -48,20 +119,21 @@ const MusicAnswers = () =>{
   <header>
     <h3>Music Preference Survey</h3>
   </header>
-  <p className="questionContaner">{renderQuestion()}</p>
+  <div className="questionContaner">{renderSongQuestions()}</div>
   <form onSubmit={handleFormSubmit()}>
     
     <div className="form-group">
-      <label htmlFor="artistInput" className="form-label mt-4">Artist:</label>
-      <input type="text" className="form-control" id="artistInput" placeholder="Enter Artist Name"/>
-    </div>
-    <div className="form-group">
-      <label htmlFor="songInput" className="form-label mt-4">Song:</label>
-      <input type="text" className="form-control" id="songInput" placeholder="Enter Song Name"/>
+      <label htmlFor="songInput" className="form-label mt-4">Song Title:</label>
+      <input type="text" className="form-control" id="songInput" name="songInput" value={formData.songInput} placeholder="Enter Song Name"/>
     </div>
     <button type="submit" className="btn btn-primary">Search</button>
     
-    <div className="searchResults">SetOptions is displayed here</div>
+    <div className="searchResults">{searchResults.map((song) =>{
+      return (
+        <button key={song.id} onClick={handleSaveSong(song.id)} value={song.title}>{song.title} - {song.artist}</button>
+      )
+    })}
+    </div>
 
     
   

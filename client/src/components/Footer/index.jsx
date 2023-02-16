@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
+import "./style.css";
+import logo from './logo.png'
 
-const Footer = () => {
+const year = new Date().getFullYear();
+
   return (
     <footer>
-      {/* Footer details HERE */}
+      <img id='footerLogo'
+          src={logo}
+          alt='Duet Logo'/>
+      
+      {`Copyright © Duet ${year}`}
     </footer>
   );
-};
 
 export default Footer;
