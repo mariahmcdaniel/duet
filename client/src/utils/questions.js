@@ -7,7 +7,7 @@ const songQuestions =
      text: "You must sacrifice yourself to say the world from peril. What song is playing in your final battle scene?",
     } ,
     {
-     text: "You relly messed up this time. Your car is sinking into a river and theres no way you will escape. What song is playing on the radio?",
+     text: "You really messed up this time. Your car is sinking into a river and theres no way you will escape. What song is playing on the radio?",
     } ,
     {
      text:  "You're on a 7 hour flight with a crying baby. What song do you put on to restore your peace and drown out the noise?",
@@ -53,5 +53,5 @@ const playlistQuestions =
 ]
 
 const albumQuestion = "What is your favorite album cover of all time?"
-export default songQuestions;
-// export default { songQuestions, playlistQuestions, albumQuestion };
+
+export default { songQuestions, playlistQuestions, albumQuestion };
