@@ -37,6 +37,10 @@ function App() {
         <div className="container-fluid">
         <Header />
         <Routes>
+        <Route
+            path='/'
+            element={<Login />}
+          />
           <Route
             path='/duet'
             element={<CreateProfile />}
