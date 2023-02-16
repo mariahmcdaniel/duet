@@ -8,7 +8,7 @@ const songQuestions =
   
     "You're on a 7 hour flight with a crying baby. What song do you put on to restore your peace and drown out the noise?",
   
-    "Your life is is a movie. What is the theme song?",
+    "Your life is a movie. What is the theme song?",
  
     "You're a pro-wrestler, about to compete for the championship belt. What song are you walking out to?",
   
