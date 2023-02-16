@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_USER } from '../../utils/queries';
+import { QUERY_USER, searchDeezerApi } from '../../utils/queries';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
 import No from './assets/no.png';
@@ -26,6 +26,7 @@ const UserPage = () => {
     const songQuestion = questions.songQuestions;
     const playlistQuestion = questions.playlistQuestions;
     const song = user.songAnswers;
+    console.log(user);
     console.log(songQuestion);
     return (
 
