@@ -25,9 +25,12 @@ function Navbar() {
     <div className="container-fluid">
       <Link to="/duet" className="navbar-brand"><img src={logo} alt="Duet logo"/></Link>
       {/* <div className="collapse navbar-collapse" id="navbarColor03"> */}
+      <p id="loggedInAs">Logged in as {Auth.getProfile().data.username} <button id="logoutBtn" onClick={logout}>
+         Logout
+      </button></p>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link to="/potentials" className="nav-link active">Potentials
+            <Link to="/feed" className="nav-link active">Potentials
               <span className="visually-hidden">(current)</span>
             </Link>
           </li>
@@ -36,9 +39,6 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <Link to="/me" className="nav-link">My Profile</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/chat" className="nav-link">Chat</Link>
           </li>
         </ul>
       {/* </div> */}
