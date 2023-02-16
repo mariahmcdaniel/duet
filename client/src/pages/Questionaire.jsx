@@ -43,9 +43,20 @@ const Questionaire = () => {
     }
   };
 
+  const styles = {
+      ptag: {
+        fontSize: 20,
+        fontWeight: 700,
+        color: "#000000",
+      },
+    };
+
+ 
+
   return (
-    <main>
-      <form onSubmit={handleFormSubmit}>
+    <main className="container d-flex justify-content-center">
+      <div className="row p-3 m-3">
+      <form style={styles.ptag} onSubmit={handleFormSubmit}>
         <fieldset>
           <div className="form-group">
             <p>You've had a long day but you really need to get a workout in. What song gets you ready to hit the gym?</p>
@@ -143,9 +154,10 @@ const Questionaire = () => {
               value={formData.twelve}
               onChange={handleChange} />
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary m-1 p-2">Submit</button>
         </fieldset>
       </form>
+      </div>
     </main>
   );
 };

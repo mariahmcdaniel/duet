@@ -10,12 +10,12 @@ const ProfileForm = () => {
     username: '',
     email: '',
     password: '',
-    age: '',
+    age: '18',
     city: '',
     state: '',
-    interestedIn: '',
-    gender: '',
-    pronouns: ''
+    interestedIn: 'Friendship',
+    gender: 'Other',
+    pronouns: 'She/Her'
   });
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -39,11 +39,19 @@ const ProfileForm = () => {
     }
   };
 
+  const styles = {
+    ptag: {
+      fontSize: 20,
+      fontWeight: 700,
+      color: "#000000",
+    },
+  };
+
 
   return (
     <main className="container">
       <div className="row">
-      <form onSubmit={handleFormSubmit}>
+      <form style={styles.ptag} onSubmit={handleFormSubmit}>
         <fieldset>
 
           <div className="form-group">
@@ -163,7 +171,7 @@ const ProfileForm = () => {
             </select>
           </div>
 
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary m-1 p-2">Submit</button>
         </fieldset>
       </form>
       </div>

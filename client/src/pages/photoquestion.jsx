@@ -31,15 +31,24 @@ const PhotoQuestion = () => {
     }
   };
 
+  const styles = {
+    ptag: {
+      fontSize: 20,
+      fontWeight: 700,
+      color: "#000000",
+    },
+  };
+
   return (
-    <main>
-    <form onSubmit={handleFormSubmit}>
+    <main className="container d-flex justify-content-center">
+      <div className="row">
+    <form style={styles.ptag} onSubmit={handleFormSubmit}>
       <fieldset>
        {/* <div>
         
         </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">click</label>
+        <label htmlFor="pronounSelect" className="form-label mt-4">Which Playlist for a Pontoon Party?</label>
         <select
           className="form-select"
           id="pontoonParty"
@@ -56,7 +65,7 @@ const PhotoQuestion = () => {
 
       </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">click</label>
+        <label htmlFor="pronounSelect" className="form-label mt-4">Roadtrip Time!</label>
         <select
           className="form-select"
           id="roadTrip"
@@ -73,7 +82,7 @@ const PhotoQuestion = () => {
         
         </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">click</label>
+        <label htmlFor="pronounSelect" className="form-label mt-4">Break-up Songs?</label>
         <select
           className="form-select"
           id="breakup"
@@ -89,6 +98,7 @@ const PhotoQuestion = () => {
       <button type="submit" className="btn btn-primary">Submit</button>
       </fieldset>
     </form>
+    </div>
     </main>
   )
 
