@@ -28,7 +28,7 @@ const Login = () => {
       });
 
       Auth.login(data.login.token);
-      window.location.replace('/feed')
+      window.location.replace('/feed1')
     } catch (e) {
       console.error(e);
     }
