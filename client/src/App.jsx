@@ -42,7 +42,7 @@ function App() {
             element={<Login />}
           />
           <Route
-            path='/createprofile1'
+            path='/createprofile'
             element={<CreateProfile />}
           />
           <Route
