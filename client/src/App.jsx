@@ -5,6 +5,7 @@ import './components/Navbar/style.css';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateProfile from './pages/CreateProfile';
+import UserPage from './pages/ProfilePage';
 import Questionaire from './pages/Questionaire';
 import Footer from './components/Footer';
 import Login from './pages/Login';
@@ -56,6 +57,10 @@ function App() {
           <Route
             path='/feed'
             element={<UserList />}
+          />
+          <Route
+            path='/users/:userId'
+            element={<UserPage />}
           />
           <Route
             path='*'
