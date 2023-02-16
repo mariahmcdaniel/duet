@@ -41,7 +41,7 @@ const resolvers = {
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id }, 
-          { songAnswers: args }, 
+          { songAnswers: args.songAnswers }, 
           { new: true })
           
       } else {
@@ -53,7 +53,7 @@ const resolvers = {
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id }, 
-          { playlistAnswers: args }, 
+          { playlistAnswers: args.playlistAnswers }, 
           { new: true })
       } else {
         throw new AuthenticationError('You must be logged in to send messages');
