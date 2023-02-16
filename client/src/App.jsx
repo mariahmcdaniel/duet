@@ -4,6 +4,7 @@ import "bootswatch/dist/quartz/bootstrap.min.css";
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProfileForm from './pages/CreateProfile'
+import Footer from './components/Footer'
 
 const httpLink = createHttpLink({uri: 'http://localhost:3001/graphql'});
 
@@ -43,7 +44,7 @@ function App() {
             path='*'
             element={<h1 className='display-2'>Wrong page!</h1>}
           /> */}
-        
+        <Footer />
       </>
     </Routes>
     </Router>

@@ -278,3 +278,7 @@ export const QUERY_MATCHES = gql`
   }
 }
 `;
+
+export const searchDeezerApi = (query) => {
+  return fetch(`https://api.deezer.com/search?q=track:"${query}"`);
+};
