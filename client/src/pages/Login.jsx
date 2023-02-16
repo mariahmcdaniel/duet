@@ -77,7 +77,7 @@ const Login = () => {
           onChange={handleChange}
         />
         </div>
-        <button class="m-2" type="submit">
+        <button className="m-2" type="submit">
           Submit
         </button>
         <Link to="/duet">
@@ -95,7 +95,7 @@ const Login = () => {
 
   return (
     <main>
-      <h4 class="m-2">Login</h4>
+      <h4 className="m-2">Login</h4>
       <div>
         {renderForm()}
         {error && <div>{error.message}</div>}
