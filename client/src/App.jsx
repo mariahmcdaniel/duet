@@ -41,7 +41,7 @@ function App() {
             element={<Login />}
           />
           <Route
-            path='/duet'
+            path='/createprofile'
             element={<CreateProfile />}
           />
           <Route
