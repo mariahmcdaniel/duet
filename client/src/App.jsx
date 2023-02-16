@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
 import "bootswatch/dist/quartz/bootstrap.min.css";
+import './components/Navbar/style.css';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CreateProfile from './pages/CreateProfile'
-import Questionaire from './pages/Questionaire'
-import Footer from './components/Footer'
+import CreateProfile from './pages/CreateProfile';
+import Questionaire from './pages/Questionaire';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Header from './components/Header';
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -29,7 +34,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        {/* <Navbar /> */}
+        <div className="container-fluid">
+        <Header />
         <Routes>
           <Route
             path='/duet'
@@ -40,11 +46,20 @@ function App() {
             element={<Questionaire />}
           />
           <Route
+            path='/login'
+            element={<Login />}
+          />
+          <Route
+            path='/signup'
+            element={<Signup />}
+          />
+          <Route
             path='*'
             element={<h1 className='display-2'>Wrong page!</h1>}
           />
         </Routes>
         <Footer />
+        </div>
       </Router>
     </ApolloProvider>
   )

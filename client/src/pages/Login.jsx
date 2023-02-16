@@ -52,7 +52,7 @@ const Login = () => {
       <form onSubmit={handleFormSubmit}>
         <fieldset>
         <div className="form-group">
-        <label for="usernameinput" className="form-label mt-4">Username</label>
+        <label htmlFor="usernameinput" className="form-label mt-4">Username</label>
         <input
         id="usernameinput"
         className="form-control"
@@ -65,7 +65,7 @@ const Login = () => {
         />
         </div>
         <div className="form-group">
-        <label for="usernameinput" className="form-label mt-4">Username</label>
+        <label htmlFor="usernameinput" className="form-label mt-4">Username</label>
         <input
         id="passwordinput"
         className="form-control"

@@ -21,10 +21,10 @@ function Navbar() {
       //   </button>
       // </>
 
-      <nav className="navbar navbar-expand-lg navbar-secondary bg-light">
+      <nav id="navbar" className="navbar navbar-expand-lg navbar-secondary bg-light">
     <div className="container-fluid">
-      <Link to="/duet" className="navbar-brand">Duet</Link>
-      <div className="collapse navbar-collapse" id="navbarColor03">
+      <Link to="/duet" className="navbar-brand"><img src={logo} alt="Duet logo"/></Link>
+      {/* <div className="collapse navbar-collapse" id="navbarColor03"> */}
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link to="/potentials" className="nav-link active">Potentials
@@ -41,7 +41,7 @@ function Navbar() {
             <Link to="/chat" className="nav-link">Chat</Link>
           </li>
         </ul>
-      </div>
+      {/* </div> */}
     </div>
   </nav> 
     );
@@ -49,13 +49,13 @@ function Navbar() {
   // If logged out show login controls
   return (
 
-    <nav className="navbar navbar-expand-lg navbar-secondary bg-light">
+    <nav id="navv" className="navbar navbar-expand-lg navbar-secondary bg-light">
     <div className="container-fluid">
       <Link to="/duet" className="navbar-brand"><img src={logo}/></Link>
-      <div className="collapse navbar-collapse" id="navbarColor03">
-        <ul className="navbar-nav ml-auto">
+      {/* <div className="collapse navbar-collapse" id="navbarColor03"> */}
+        <ul className="navbar-nav me-auto">
           <li className="nav-item">
-            <Link to="/potentials" className="nav-link active">Login
+            <Link to="/login" className="nav-link active">Login
             </Link>
           </li>
           <li className="nav-item">
@@ -63,7 +63,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
-    </div>
+    {/* </div> */}
   </nav> 
   )
 }

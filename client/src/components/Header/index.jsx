@@ -1,21 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Auth from '../../utils/auth';
 import Navbar from '../Navbar';
 
 const Header = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+  
+  if (Auth.loggedIn()) {
   return (
     <header>
       <div>
-        <Link to="/">
-          <h1>User List</h1>
-        </Link>
+      <button onClick={logout}>
+         Logout
+      </button>
       </div>
       <div>
-        <p>Simple App to View Users.</p>
+      Logged in as {Auth.getProfile().data.username}
         <Navbar />
       </div>
     </header>
   );
+  }
+   
+  return (
+    <header>
+      <div>
+        <Navbar />
+      </div>
+    </header>
+  );
+
 };
 
 export default Header;
