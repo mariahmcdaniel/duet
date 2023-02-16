@@ -33,6 +33,7 @@ const PhotoQuestion = () => {
 
   return (
     <form onSubmit={{ handleFormSubmit }}>
+      <fieldset>
        <div>
         
         </div>
@@ -40,7 +41,7 @@ const PhotoQuestion = () => {
         <label htmlFor="pronounSelect" className="form-label mt-4">Pronouns</label>
         <select
           className="form-select"
-          id="pronounSelect"
+          id="pontoonParty"
           name="one"
           value={formData.one}
           onChange={handleChange}>
@@ -57,7 +58,7 @@ const PhotoQuestion = () => {
         <label htmlFor="pronounSelect" className="form-label mt-4">Pronouns</label>
         <select
           className="form-select"
-          id="pronounSelect"
+          id="roadTrip"
           name="one"
           value={formData.two}
           onChange={handleChange}>
@@ -74,7 +75,7 @@ const PhotoQuestion = () => {
         <label htmlFor="pronounSelect" className="form-label mt-4">Pronouns</label>
         <select
           className="form-select"
-          id="pronounSelect"
+          id="breakup"
           name="one"
           value={formData.three}
           onChange={handleChange}>
@@ -85,6 +86,7 @@ const PhotoQuestion = () => {
         </select>
       </div>
       <button type="submit" className="btn btn-primary">Submit</button>
+      </fieldset>
     </form>
   )
 
