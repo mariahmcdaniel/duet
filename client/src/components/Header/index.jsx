@@ -12,15 +12,7 @@ const Header = () => {
   if (Auth.loggedIn()) {
   return (
     <header>
-      <div>
-      <button onClick={logout}>
-         Logout
-      </button>
-      </div>
-      <div>
-      Logged in as {Auth.getProfile().data.username}
         <Navbar />
-      </div>
     </header>
   );
   }

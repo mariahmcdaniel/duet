@@ -1,7 +1,7 @@
 #homeContainer {
  box-sizing: content-box !important;
  font-size: clamp(1rem, 2.5vw, 2rem);
- font-family: "didot";
+ font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
  margin-bottom: 50px;
  margin-right: 700px; 
  margin-left: 17px !important;
@@ -10,7 +10,6 @@
 #homeRow {
   flex-direction: column;
   align-items:center;
-
 }
 
 #match {
