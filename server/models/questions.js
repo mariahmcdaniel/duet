@@ -1,57 +1,24 @@
 const { Schema } = require('mongoose');
 
 const songQuestionSchema = new Schema({
-
-	songquestion1: {
-		artist: String,
-		track: String,
-		songClip: String, 
-	},
-	songquestion2: {
-		artist: String,
-		track: String,
-		songClip: String, 
-	},
-	songquestion3: {
-		artist: String,
-		track: String,
-		songClip: String, 
-	},
-	songquestion4: {
-		artist: String,
-		track: String,
-		songClip: String, 
-	},
-	songquestion5: {
-		artist: String,
-		track: String,
-		songClip: String, 
-	},
-	songquestion6: {
-		artist: String,
-		track: String,
-		songClip: String, 
-	},
-	songquestion7: {
-		artist: String,
-		track: String,
-		songClip: String, 
-	},
-
-
+	one: { type: String},
+	two: { type: String},
+	three: { type: String},
+	four: { type: String},
+	five: { type: String},
+	six: { type: String},
+	seven: { type: String},
+	eight: { type: String},
+	nine: { type: String},
+	ten: { type: String},
+	eleven: { type: String},
+	twelve: { type: String},
 });
 
 const playlistQuestionSchema = new Schema({
-	
-	playlistquestion1: {
-		type: Number, 
-	},
-	playlistquestion2: {
-		type: Number, 
-	},
-	playlistquestion3: {
-		type: Number, 
-	},
-});
+	one: { type: Number},
+	two: { type: Number},
+	three: { type: Number}
+})
 
 module.exports = { playlistQuestionSchema, songQuestionSchema };

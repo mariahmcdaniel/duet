@@ -28,6 +28,7 @@ const Login = () => {
       });
 
       Auth.login(data.login.token);
+      window.location.replace('/feed')
     } catch (e) {
       console.error(e);
     }
@@ -80,7 +81,7 @@ const Login = () => {
         <button className="m-2" type="submit">
           Submit
         </button>
-        <Link to="/duet">
+        <Link to="/createprofile">
         <button>
           Sign Up
         </button>

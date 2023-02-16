@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const ProfileForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -31,6 +33,7 @@ const ProfileForm = () => {
       });
 
       Auth.login(data.addUser.token);
+      navigate("/quest");
     } catch (e) {
       console.error(e);
     }
@@ -38,7 +41,8 @@ const ProfileForm = () => {
 
 
   return (
-    <main>
+    <main className="container">
+      <div className="row">
       <form onSubmit={handleFormSubmit}>
         <fieldset>
 
@@ -162,6 +166,7 @@ const ProfileForm = () => {
           <button type="submit" className="btn btn-primary">Submit</button>
         </fieldset>
       </form>
+      </div>
     </main>
   );
 };
