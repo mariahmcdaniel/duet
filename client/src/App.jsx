@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateProfile from './pages/CreateProfile'
 import Questionaire from './pages/Questionaire'
 import Footer from './components/Footer'
+import UserList from './pages/PotentialMatches';
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -38,6 +39,10 @@ function App() {
           <Route
             path='/quest'
             element={<Questionaire />}
+          />
+          <Route
+            path='/feed'
+            element={<UserList />}
           />
           <Route
             path='*'
