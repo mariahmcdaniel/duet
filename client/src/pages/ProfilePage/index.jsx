@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
 import questions from '../../utils/questions';
@@ -8,7 +8,11 @@ import No from './assets/no.png';
 import pin from './assets/pin.png';
 
 const UserPage = () => {
-    const { loading, data } = useQuery(QUERY_USER);
+    const { userId } = useParams();
+    const { loading, data } = useQuery(QUERY_USER, {
+        variables: { userId: userId },
+    });
+
     const user = data?.user || [];
 
     if (loading) {
@@ -20,8 +24,9 @@ const UserPage = () => {
     }
 
     const songQuestion = questions.songQuestions;
-    const playlistQuestion = questions.playlistQuestion;
+    const playlistQuestion = questions.playlistQuestions;
     const song = user.songAnswers;
+    console.log(songQuestion);
     return (
 
         <div className='container'>
@@ -55,7 +60,7 @@ const UserPage = () => {
                         <img src={user.playlistAnswers.one}></img>
                     </div>
                     <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[0]}</p>
+                        <p>{songQuestion[0].text}</p>
                         <audio controls src={song.one.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-start'>
@@ -63,11 +68,11 @@ const UserPage = () => {
                         <img src={user.playlistAnswers.two}></img>
                     </div>
                     <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[1]}</p>
+                        <p>{songQuestion[1].text}</p>
                         <audio controls src={song.two.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[2]}</p>
+                        <p>{songQuestion[2].text}</p>
                         <audio controls src={song.three.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-end'>
@@ -75,39 +80,39 @@ const UserPage = () => {
                         <img src={user.playlistAnswers.three}></img>
                     </div>
                     <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[3]}</p>
+                        <p>{songQuestion[3].text}</p>
                         <audio controls src={song.four.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[4]}</p>
+                        <p>{songQuestion[4].text}</p>
                         <audio controls src={song.five.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[5]}</p>
+                        <p>{songQuestion[5].text}</p>
                         <audio controls src={song.six.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[6]}</p>
+                        <p>{songQuestion[6].text}</p>
                         <audio controls src={song.seven.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[7]}</p>
+                        <p>{songQuestion[7].text}</p>
                         <audio controls src={song.eight.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[8]}</p>
+                        <p>{songQuestion[8].text}</p>
                         <audio controls src={song.nine.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[9]}</p>
+                        <p>{songQuestion[9].text}</p>
                         <audio controls src={song.ten.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[10]}</p>
+                        <p>{songQuestion[10].text}</p>
                         <audio controls src={song.eleven.preview}></audio>
                     </div>
                     <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[11]}</p>
+                        <p>{songQuestion[11].text}</p>
                         <audio controls src={song.twelve.preview}></audio>
                     </div>
                 </div>

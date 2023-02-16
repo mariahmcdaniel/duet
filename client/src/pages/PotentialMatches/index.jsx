@@ -33,7 +33,7 @@ const UserList = () => {
     <div className='container'>
       <div className='m-5'>
         {userList.map((user) => {
-          const question = questions[4].text;
+          const question = questions.songQuestions[4].text;
           const song = user.songAnswers;
           console.log(song)
           return (
