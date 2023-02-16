@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { UPDATE_PLAYLIST } from '../utils/mutations';
 
 const PhotoQuestion = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [formData, setFormData] = useState({
     one: '',
     two: '',
@@ -24,7 +24,7 @@ const PhotoQuestion = () => {
       const { data } = await updatePlaylist({
         variables: { playlistAnswers: { ...formData } },
       });
-      navigate("/feed");
+      window.location.replace('/feed');
 
     } catch (e) {
       console.error(e);
@@ -32,13 +32,14 @@ const PhotoQuestion = () => {
   };
 
   return (
-    <form onSubmit={{ handleFormSubmit }}>
+    <main>
+    <form onSubmit={handleFormSubmit}>
       <fieldset>
-       <div>
+       {/* <div>
         
-        </div>
+        </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">Pronouns</label>
+        <label htmlFor="pronounSelect" className="form-label mt-4">click</label>
         <select
           className="form-select"
           id="pontoonParty"
@@ -51,11 +52,11 @@ const PhotoQuestion = () => {
 
         </select>
       </div>
-      <div>
+      {/* <div>
 
-      </div>
+      </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">Pronouns</label>
+        <label htmlFor="pronounSelect" className="form-label mt-4">click</label>
         <select
           className="form-select"
           id="roadTrip"
@@ -68,11 +69,11 @@ const PhotoQuestion = () => {
 
         </select>
       </div>
-      <div>
+      {/* <div>
         
-        </div>
+        </div> */}
       <div className="form-group">
-        <label htmlFor="pronounSelect" className="form-label mt-4">Pronouns</label>
+        <label htmlFor="pronounSelect" className="form-label mt-4">click</label>
         <select
           className="form-select"
           id="breakup"
@@ -88,6 +89,7 @@ const PhotoQuestion = () => {
       <button type="submit" className="btn btn-primary">Submit</button>
       </fieldset>
     </form>
+    </main>
   )
 
 
