@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { UPDATE_ANSWERS } from '../utils/mutations';
-import Auth from '../utils/auth';
 
 const Questionaire = () => {
-  
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     one: '',
@@ -36,6 +36,7 @@ const Questionaire = () => {
       const { data } = await updateAnswers({
         variables: { songAnswers: { ...formData } },
       });
+      navigate("/photo");
 
     } catch (e) {
       console.error(e);
