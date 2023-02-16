@@ -1,10 +1,50 @@
 .navbar-nav {
   padding-right: 30px;
   margin: 0 !important;
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+}
+
+.nav-link {
+  padding: 5px;
+  border: 2px solid #c8bfad;
+  margin: 5px;
+  box-shadow: #7d7d72;
+  text-align: center;
+  background-color: #c0c0ad;
+}
+
+a:hover {
+  filter: drop-shadow(10px 7px 10px #080808);
 }
 
 #navbar, #navv {
   background-color: #d3cab6 !important;
   padding: 0px !important;
   border-bottom: #8d877b solid 4px;
+  font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
+}
+
+
+#loggedInAs {
+  font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
+  margin-right: 20px;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+  color: #567576 ;
+  font-weight: bolder;
+}
+
+#logoutBtn {
+  margin-left: 50px;
+  filter: drop-shadow(5px 3px 2px #111110);
+  max-height: 50px;
+  padding:5px;
+  background-color: #7d7d72;
+  color: #e6e7cf;
+  font-weight: bold;
+  font-size: clamp(.5rem, 1.2vw, 1rem);
+}
+
+#logoutBtn:hover {
+  filter: drop-shadow(10px 7px 10px #080808);
+  border: none;
 }
