@@ -24,24 +24,24 @@ const typeDefs = gql`
   }
 
   type SongAnswers {
-    songquestion1: Answer!
-    songquestion2: Answer!
-    songquestion3: Answer!
-    songquestion4: Answer!
-    songquestion5: Answer!
-    songquestion6: Answer!
-    songquestion7: Answer!
-    songquestion8: Answer!
-    songquestion9: Answer!
-    songquestion10: Answer!
-    songquestion11: Answer!
-    songquestion12: Answer!
+    one: String!
+    two: String!
+    three: String!
+    four: String!
+    five: String!
+    six: String!
+    seven: String!
+    eight: String!
+    nine: String!
+    ten: String!
+    eleven: String!
+    twelve: String!
   }
 
   type PlaylistAnswers {
-    playlistquestion1: Int!
-    playlistquestion2: Int!
-    playlistquestion3: Int!
+    one: Int!
+    two: Int!
+    three: Int!
   }
 
   type Match {
@@ -70,18 +70,18 @@ const typeDefs = gql`
   }
 
   input SongAnswersInput {
-    songquestion1: AnswerInput!
-    songquestion2: AnswerInput!
-    songquestion3: AnswerInput!
-    songquestion4: AnswerInput!
-    songquestion5: AnswerInput!
-    songquestion6: AnswerInput!
-    songquestion7: AnswerInput!
-    songquestion8: AnswerInput!
-    songquestion9: AnswerInput!
-    songquestion10: AnswerInput!
-    songquestion11: AnswerInput!
-    songquestion12: AnswerInput!
+    one: String!
+    two: String!
+    three: String!
+    four: String!
+    five: String!
+    six: String!
+    seven: String!
+    eight: String!
+    nine: String!
+    ten: String!
+    eleven: String!
+    twelve: String!
   }
 
   input PlaylistAnswersInput {

@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import UserList from './pages/PotentialMatches';
 import Header from './components/Header';
+import lgLogo from './Duet-Logo-lg.png';
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -58,7 +59,11 @@ function App() {
           />
           <Route
             path='*'
-            element={<h1 className='display-2'>Wrong page!</h1>}
+            element={(<div>
+            <h1 className='display-2'>Wrong page!</h1>
+            <img src ={lgLogo} alt='Duet Logo'/>
+            </div>
+            )}
           />
         </Routes>
         <Footer />

@@ -59,7 +59,7 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/signup" className="nav-link">Sign Up</Link>
+            <Link to="/createprofile" className="nav-link">Sign Up</Link>
           </li>
         </ul>
       </div>

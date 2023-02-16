@@ -38,7 +38,8 @@ const ProfileForm = () => {
 
 
   return (
-    <main>
+    <main className="container">
+      <div className="row">
       <form onSubmit={handleFormSubmit}>
         <fieldset>
 
@@ -162,6 +163,7 @@ const ProfileForm = () => {
           <button type="submit" className="btn btn-primary">Submit</button>
         </fieldset>
       </form>
+      </div>
     </main>
   );
 };
