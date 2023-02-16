@@ -1,0 +1,17 @@
+.playlistimg {
+  max-width: 300px;
+}
+
+.imgrow {
+  flex-direction: row;
+  justify-content:  flex-end;
+  vertical-align: auto !important;
+}
+
+.playlistimg{
+  margin: 10px;
+}
+
+label {
+  text-align: center;
+}

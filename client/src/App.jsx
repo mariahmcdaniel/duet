@@ -11,7 +11,7 @@ import Login from './pages/Login';
 import UserList from './pages/PotentialMatches';
 import Header from './components/Header';
 import lgLogo from './Duet-Logo-lg.png';
-import PhotoQuestion from './pages/Photoquestion';
+import PhotoQuestion from './pages/PhotoQuestion/index';
 import Home from './pages/Home/Home';
 
 const httpLink = createHttpLink({ uri: '/graphql' });
