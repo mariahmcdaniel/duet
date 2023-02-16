@@ -6,4 +6,5 @@
 #navbar, #navv {
   background-color: #d3cab6 !important;
   padding: 0px !important;
+  border-bottom: #8d877b solid 4px;
 }

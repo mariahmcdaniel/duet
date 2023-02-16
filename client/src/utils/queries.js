@@ -12,72 +12,24 @@ export const QUERY_USER = gql`
     password
     photo
     playlistAnswers {
-      playlistquestion1
-      playlistquestion2
-      playlistquestion3
+      one
+      two
+      three
     }
     pronouns
     songAnswers {
-      songquestion1 {
-        artist
-        songClip
-        track
-      }
-      songquestion2 {
-        artist
-        songClip
-        track
-      }
-      songquestion3 {
-        artist
-        songClip
-        track
-      }
-      songquestion4 {
-        artist
-        songClip
-        track
-      }
-      songquestion5 {
-        artist
-        songClip
-        track
-      }
-      songquestion6 {
-        artist
-        songClip
-        track
-      }
-      songquestion7 {
-        artist
-        songClip
-        track
-      }
-      songquestion8 {
-        artist
-        songClip
-        track
-      }
-      songquestion9 {
-        artist
-        songClip
-        track
-      }
-      songquestion10 {
-        artist
-        songClip
-        track
-      }
-      songquestion11 {
-        artist
-        songClip
-        track
-      }
-      songquestion12 {
-        artist
-        songClip
-        track
-      }
+      one
+      two
+      three
+      four
+      five
+      six
+      seven
+      eight
+      nine
+      ten
+      eleven
+      twelve
     }
     state
     username
@@ -97,74 +49,26 @@ export const QUERY_USERS = gql`
     password
     photo
     playlistAnswers {
-      playlistquestion1
-      playlistquestion2
-      playlistquestion3
+      one
+      two
+      three
     }
     pronouns
     state
     username
     songAnswers {
-      songquestion1 {
-        artist
-        songClip
-        track
-      }
-      songquestion2 {
-        artist
-        songClip
-        track
-      }
-      songquestion3 {
-        artist
-        songClip
-        track
-      }
-      songquestion4 {
-        artist
-        songClip
-        track
-      }
-      songquestion5 {
-        artist
-        songClip
-        track
-      }
-      songquestion6 {
-        artist
-        songClip
-        track
-      }
-      songquestion7 {
-        artist
-        songClip
-        track
-      }
-      songquestion8 {
-        artist
-        songClip
-        track
-      }
-      songquestion9 {
-        artist
-        songClip
-        track
-      }
-      songquestion10 {
-        artist
-        songClip
-        track
-      }
-      songquestion11 {
-        artist
-        songClip
-        track
-      }
-      songquestion12 {
-        artist
-        songClip
-        track
-      }
+      one
+      two
+      three
+      four
+      five
+    six
+      seven
+      eight
+      nine
+      ten
+      eleven
+      twelve
     }
   }
 }
@@ -184,71 +88,23 @@ export const QUERY_ME = gql`
     state
     username
     playlistAnswers {
-      playlistquestion1
-      playlistquestion2
-      playlistquestion3
+      one
+      two
+      three
     }
     songAnswers {
-      songquestion1 {
-        artist
-        songClip
-        track
-      }
-      songquestion2 {
-        artist
-        songClip
-        track
-      }
-      songquestion3 {
-        artist
-        songClip
-        track
-      }
-      songquestion4 {
-        artist
-        songClip
-        track
-      }
-      songquestion5 {
-        artist
-        songClip
-        track
-      }
-      songquestion6 {
-        artist
-        songClip
-        track
-      }
-      songquestion7 {
-        artist
-        songClip
-        track
-      }
-      songquestion8 {
-        artist
-        songClip
-        track
-      }
-      songquestion9 {
-        artist
-        songClip
-        track
-      }
-      songquestion10 {
-        artist
-        songClip
-        track
-      }
-      songquestion11 {
-        artist
-        songClip
-        track
-      }
-      songquestion12 {
-        artist
-        songClip
-        track
-      }
+      one
+      two
+      three
+      four
+      five
+    six
+      seven
+      eight
+      nine
+      ten
+      eleven
+      twelve
     }
   }
 }
