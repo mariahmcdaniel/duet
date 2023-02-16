@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const ProfileForm = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,6 @@ const ProfileForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     
-    console.log('ln 28 index.jsx',formData);
     try {
       const { data } = await addUser({
         variables: { ...formData },
@@ -77,14 +76,6 @@ const ProfileForm = () => {
               value={formData.password}
               onChange={handleChange} />
           </div>
-          {/* <div className="form-group">
-            <label htmlFor="passwordconfinput" className="form-label mt-4">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="passwordconfinput"
-              placeholder="Password confirmation" />
-          </div> */}
           <div className="form-group">
             <label htmlFor="cityinput" className="form-label mt-4">City</label>
             <input
