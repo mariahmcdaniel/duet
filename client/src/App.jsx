@@ -54,6 +54,10 @@ function App() {
             element={<Login />}
           />
           <Route
+            path='/feed'
+            element={<UserList />}
+          />
+          <Route
             path='*'
             element={<h1 className='display-2'>Wrong page!</h1>}
           />
