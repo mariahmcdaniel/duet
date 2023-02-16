@@ -49,10 +49,12 @@ const Login = () => {
       )
     }
     return (
+      <div className="container">
+        <div className="row">
       <form onSubmit={handleFormSubmit}>
         <fieldset>
-        <div className="form-group">
-        <label for="usernameinput" className="form-label mt-4">Username</label>
+        <div className="w-50 form-group">
+        <label htmlFor="usernameinput" className="form-label mt-4">Username</label>
         <input
         id="usernameinput"
         className="form-control"
@@ -61,11 +63,10 @@ const Login = () => {
           type="username"
           value={formState.username}
           onChange={handleChange}
-
-        />
+          />
         </div>
-        <div className="form-group">
-        <label for="usernameinput" className="form-label mt-4">Username</label>
+        <div className="w-50 form-group">
+        <label htmlFor="passwordinput" className="form-label mt-4">Password</label>
         <input
         id="passwordinput"
         className="form-control"
@@ -76,17 +77,25 @@ const Login = () => {
           onChange={handleChange}
         />
         </div>
-        <button type="submit">
+        <button class="m-2" type="submit">
           Submit
         </button>
+        <Link to="/duet">
+        <button>
+          Sign Up
+        </button>
+        </Link>
         </fieldset>
       </form>
+      </div>
+      </div>
+      
     );
   };
 
   return (
     <main>
-      <h4>Login</h4>
+      <h4 class="m-2">Login</h4>
       <div>
         {renderForm()}
         {error && <div>{error.message}</div>}
