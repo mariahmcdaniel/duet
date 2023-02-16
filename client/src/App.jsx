@@ -7,6 +7,8 @@ import CreateProfile from './pages/CreateProfile'
 import Questionaire from './pages/Questionaire'
 import Footer from './components/Footer'
 import UserList from './pages/PotentialMatches';
+import Login from './pages/Login'
+
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -32,6 +34,10 @@ function App() {
       <Router>
         {/* <Navbar /> */}
         <Routes>
+        <Route
+            path='/'
+            element={<Login />}
+          />
           <Route
             path='/duet'
             element={<CreateProfile />}
@@ -40,6 +46,7 @@ function App() {
             path='/quest'
             element={<Questionaire />}
           />
+          
           <Route
             path='/feed'
             element={<UserList />}
