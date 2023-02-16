@@ -90,3 +90,5 @@ const PhotoQuestion = () => {
 
 
 }
+
+export default PhotoQuestion;
