@@ -1,0 +1,8 @@
+.navbar-nav {
+  padding-right: 30px;
+}
+
+#navbar, #navv {
+  background-color: #d3cab6 !important;
+  padding: 0px !important;
+}

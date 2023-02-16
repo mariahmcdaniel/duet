@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
 import "bootswatch/dist/quartz/bootstrap.min.css";
+import './components/Navbar/style.css';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CreateProfile from './pages/CreateProfile'
-import Questionaire from './pages/Questionaire'
-import Footer from './components/Footer'
+import CreateProfile from './pages/CreateProfile';
+import Questionaire from './pages/Questionaire';
+import Footer from './components/Footer';
+import Login from './pages/Login';
 import UserList from './pages/PotentialMatches';
-import Login from './pages/Login'
-
+import Header from './components/Header';
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -32,7 +33,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        {/* <Navbar /> */}
+        <div className="container-fluid">
+        <Header />
         <Routes>
         <Route
             path='/'
@@ -46,7 +48,10 @@ function App() {
             path='/quest'
             element={<Questionaire />}
           />
-          
+          <Route
+            path='/login'
+            element={<Login />}
+          />
           <Route
             path='/feed'
             element={<UserList />}
@@ -57,6 +62,7 @@ function App() {
           />
         </Routes>
         <Footer />
+        </div>
       </Router>
     </ApolloProvider>
   )
