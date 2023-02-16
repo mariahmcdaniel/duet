@@ -23,6 +23,8 @@ const UserPage = () => {
         return <h3>No User</h3>
     }
 
+    
+
     const songQuestion = questions.songQuestions;
     const playlistQuestion = questions.playlistQuestions;
     const song = user.songAnswers;

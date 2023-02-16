@@ -19,6 +19,25 @@ const User = ({ _id, username }) => {
   );
 };
 
+const findSong = async (song) => {
+  try{
+    const response = await searchDeezerApi(song)
+    const { items } = await response.json()
+    const songInfo = items.map((song) => ({
+      title: song.title,
+      album: song.album,
+      artist: song.artist,
+      filename: song.preview,
+      art: song.album.picture
+    }))
+    console.log(songInfo)
+    return songInfo
+  }catch (err) {
+    console.error(err);
+  }
+
+}
+
 const UserList = () => {
 
   const { loading, data } = useQuery(QUERY_USERS);
