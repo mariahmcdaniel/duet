@@ -5,8 +5,6 @@ import { useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 import { DELETE_USER } from '../../utils/mutations';
 import questions from '../../utils/questions';
-import Yes from './assets/yes.png';
-import No from './assets/no.png';
 import pin from './assets/pin.png';
 import profileImage from '../../assets/profileImages/image2.png';
 
