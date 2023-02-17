@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, searchDeezerApi } from '../../utils/queries';
+import { QUERY_USER } from '../../utils/queries';
 import { CREATE_MATCH } from '../../utils/mutations';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
@@ -15,6 +15,19 @@ const UserPage = () => {
         variables: { userId: userId },
     });
 
+    const [ createMatch, { error } ] = useMutation(CREATE_MATCH, {
+        update(cache, { data: { createMatch } }) {
+            try {
+                cache.writeQuery({
+                    query: QUERY_USER,
+                    data: { user: createMatch },
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    });
+
     const user = data?.user || [];
 
     if (loading) {
@@ -25,23 +38,11 @@ const UserPage = () => {
         return <h3>No User</h3>
     }
 
-    const [ initiateMatch, { error } ] = useMutation(CREATE_MATCH, {
-        update(cache, { data: { initiateMatch } }) {
-            try {
-                cache.writeQuery({
-                    query: QUERY_USER,
-                    data: { user: initiateMatch },
-                });
-            } catch (err) {
-                console.log(err);
-            }
-        }
-    });
 
     const handleCreateMatch = async (user) => {
         try {
-            const { data } = await initiateMatch({
-                variables: { user }
+            const { data } = await createMatch({
+                variables: { userId }
             });
         } catch (err) {
             console.log(err);

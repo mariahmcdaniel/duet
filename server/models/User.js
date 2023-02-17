@@ -60,6 +60,11 @@ const userSchema = new Schema({
 
   playlistAnswers: playlistQuestionSchema,
 
+  // matches: [{
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Match',
+  // }]
+
 });
 
 userSchema.pre('save', async function (next) {

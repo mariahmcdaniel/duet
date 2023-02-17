@@ -8,6 +8,7 @@ import CreateProfile from './pages/CreateProfile';
 import UserPage from './pages/ProfilePage';
 import MyPage from './pages/myProfile';
 import DeletedAcctMessage from './components/DeletedAcctMessage';
+import MatchPage from './pages/Matches';
 import Questionaire from './pages/Questionaire';
 import Footer from './components/Footer';
 import Login from './pages/Login';
@@ -78,6 +79,10 @@ function App() {
             <Route
               path='/me'
               element={<MyPage />}
+            />
+            <Route
+              path='/matches'
+              element={<MatchPage />}
             />
             <Route
               path='/accountDeleted'
