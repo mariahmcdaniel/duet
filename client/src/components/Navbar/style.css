@@ -53,3 +53,7 @@ a:hover {
 #username {
   color: #714855;
 }
+
+#navLogo {
+  filter: drop-shadow(3px 0px 2px #485248d4);
+}
