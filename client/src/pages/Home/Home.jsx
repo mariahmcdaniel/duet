@@ -6,7 +6,7 @@ import './style.css'
 
 const Home = () => {
   return (
-    <main id="homeContainer">
+    <main id="homeContainer d-flex justify-content-center">
       <div id="homeRow" className="row d-flex">
           <div id="match" className="homeCol col-2">
     <div>Meet your musical match...</div>
