@@ -33,6 +33,8 @@ export const QUERY_USER = gql`
     }
     state
     username
+    firstName
+    lastName
   }
 }
 `;
@@ -48,6 +50,8 @@ export const QUERY_USERS = gql`
     interestedIn
     password
     photo
+    firstName
+    lastName
     playlistAnswers {
       one
       two
@@ -87,6 +91,8 @@ export const QUERY_ME = gql`
     pronouns
     state
     username
+    firstName
+    lastName
     playlistAnswers {
       one
       two

@@ -8,22 +8,12 @@ import No from './assets/no.png';
 import './style.css';
 
 
-const User = ({ _id, username }) => {
-  return (
-    <div key={_id}>
-      <h4>
-        <Link to={`/users/${_id}`}>
-          {username}
-        </Link>
-      </h4>
-    </div>
-  );
-};
-
 const UserList = () => {
 
   const { loading, data } = useQuery(QUERY_USERS);
   const userList = data?.users || [];
+
+  console.log(userList)
 
   if (loading) {
     return <h2>Loading...</h2>
