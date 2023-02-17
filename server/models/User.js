@@ -4,6 +4,18 @@ const {playlistQuestionSchema, songQuestionSchema} = require('./Questions');
 
 
 const userSchema = new Schema({
+  firstName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
   username: {
     type: String,
     required: true,
