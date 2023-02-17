@@ -33,7 +33,7 @@ const ProfileForm = () => {
       });
 
       Auth.login(data.addUser.token);
-      navigate("/quest");
+      window.location.replace("/quest");
     } catch (e) {
       console.error(e);
     }
@@ -170,7 +170,6 @@ const ProfileForm = () => {
               <option>Both</option>
             </select>
           </div>
-
           <button type="submit" className="btn btn-primary m-1 p-2">Submit</button>
         </fieldset>
       </form>

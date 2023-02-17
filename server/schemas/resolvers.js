@@ -36,6 +36,9 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    deleteUser: async (_, args, { userId }) => {
+      return await User.findOneAndDelete({_id: userId})
+    },
     updateAnswers: async (_, args, context) => {
       console.log(args)
       if (context.user) {

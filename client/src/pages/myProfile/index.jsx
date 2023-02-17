@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_USER, searchDeezerApi } from '../../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
 import { CREATE_MATCH } from '../../utils/mutations';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
@@ -9,11 +9,12 @@ import No from './assets/no.png';
 import pin from './assets/pin.png';
 import profileImage from '../../assets/profileImages/image2.png';
 
-const UserPage = () => {
+const MyPage = () => {
     const { userId } = useParams();
-    const { loading, data } = useQuery(QUERY_USER, {
-        variables: { userId: userId },
+    const { loading, data } = useQuery(QUERY_ME, {
+        variables: { _id: userId }
     });
+    console.log(data);
 
     const user = data?.user || [];
 
@@ -24,8 +25,6 @@ const UserPage = () => {
     if (!user) {
         return <h3>No User</h3>
     }
-
-    
 
     const songQuestion = questions.songQuestions;
     const playlistQuestion = questions.playlistQuestions;
@@ -126,4 +125,4 @@ const UserPage = () => {
     )
 };
 
-export default UserPage;
+export default MyPage;

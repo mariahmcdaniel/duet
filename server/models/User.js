@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Questions } = require('mongoose');
 const bcrypt = require('bcrypt');
 const {playlistQuestionSchema, songQuestionSchema} = require('./Questions');
 
