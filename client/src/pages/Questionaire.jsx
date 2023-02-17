@@ -2,6 +2,7 @@ import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { UPDATE_ANSWERS } from '../utils/mutations';
+import { searchDeezerApi } from '../utils/queries';
 
 const Questionaire = () => {
   // const navigate = useNavigate();
@@ -22,21 +23,25 @@ const Questionaire = () => {
 
   });
 
+  
+  console.log(photo)
+  
   const [updateAnswers, { error }] = useMutation(UPDATE_ANSWERS);
-
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
       console.log('FORMDATA', formData)
+      const photo = searchDeezerApi(formData.one)
       const { data } = await updateAnswers({
         variables: { songAnswers: { ...formData } },
       });
-      window.location.replace('/photo')
+      // window.location.replace('/photo')
 
     } catch (e) {
       console.error(e);
@@ -66,7 +71,7 @@ const Questionaire = () => {
               value={formData.one}
               onChange={handleChange} />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <p>You must sacrifice yourself to say the world from peril. What song is playing in your final battle scene?</p>
             <input
               className="form-control"
@@ -153,7 +158,7 @@ const Questionaire = () => {
               name="twelve"
               value={formData.twelve}
               onChange={handleChange} />
-          </div>
+          </div> */}
           <button type="submit" className="btn btn-primary m-1 p-2">Submit</button>
         </fieldset>
       </form>
