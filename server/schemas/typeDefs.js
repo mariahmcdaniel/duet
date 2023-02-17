@@ -63,6 +63,24 @@ const typeDefs = gql`
     user: User
   }
 
+  type Artist {
+    id: ID
+    name: String
+  }
+
+  type Album {
+    id: ID
+    cover_medium: String
+  }
+
+  type Deezer {
+    id: ID
+    title: String
+    preview: String
+    artist: Artist
+    album: Album
+  }
+
   input AnswerInput {
     artist: String!
     track: String!
@@ -95,6 +113,7 @@ const typeDefs = gql`
     user(id: ID!): User
     me: User
     matches: [Match]
+    searchDeezer(song: String!): Deezer
   }
 
   type Mutation {
