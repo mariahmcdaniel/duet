@@ -36,8 +36,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    deleteUser: async (_, args, { userId }) => {
-      return await User.findOneAndDelete({_id: userId})
+    deleteUser: async (_parent, _args, context) => {
+      if (context.user) {
+        return User.findOneAndDelete({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     updateAnswers: async (_, args, context) => {
       console.log(args)
