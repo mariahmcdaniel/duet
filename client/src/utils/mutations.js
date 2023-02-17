@@ -89,7 +89,7 @@ mutation CreateMessage($matchId: ID!, $text: String!) {
 }
 `;
 
-export const ADD_PHOTO = gql`
+export const UPDATE_PHOTO = gql`
   mutation addPhoto($photo: String!) {
   updatePhoto(photo: $photo) {
     _id

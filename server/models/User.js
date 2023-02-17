@@ -1,6 +1,6 @@
 const { Schema, model, Questions } = require('mongoose');
 const bcrypt = require('bcrypt');
-const {playlistQuestionSchema, songQuestionSchema} = require('./Questions');
+const { playlistQuestionSchema, songQuestionSchema } = require('./Questions');
 
 
 const userSchema = new Schema({
@@ -60,7 +60,7 @@ const userSchema = new Schema({
 
   playlistAnswers: playlistQuestionSchema,
 
-  });
+});
 
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
