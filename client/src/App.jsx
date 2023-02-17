@@ -14,7 +14,7 @@ import UserList from './pages/PotentialMatches';
 import Header from './components/Header';
 import lgLogo from './Duet-Logo-lg.png';
 import PhotoQuestion from './pages/PhotoQuestion/index';
-import Home from './pages/Home/Home';
+import Home from './pages/Home';
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -38,7 +38,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="container-fluid">
+        <div className="appCont container-fluid">
         <Header />
         <Routes>
         <Route

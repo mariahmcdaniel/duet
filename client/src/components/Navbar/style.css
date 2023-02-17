@@ -14,19 +14,20 @@
 }
 
 a:hover {
-  filter: drop-shadow(10px 7px 10px #080808);
+  filter: drop-shadow(4px 4px 4px #08080857);
+  transform: translate(-2px, -2px);
 }
 
 #navbar, #navv {
-  background-color: #d3cab6 !important;
+  background-color: #d9bb9b !important;
   padding: 0px !important;
   border-bottom: #8d877b solid 4px;
-  font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
 
 #loggedInAs {
-  font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   margin-right: 20px;
   font-size: clamp(1rem, 1.2vw, 1.3rem);
   color: #567576 ;
@@ -47,4 +48,8 @@ a:hover {
 #logoutBtn:hover {
   filter: drop-shadow(10px 7px 10px #080808);
   border: none;
+}
+
+#username {
+  color: #714855;
 }

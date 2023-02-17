@@ -22,10 +22,10 @@ function Navbar() {
       // </>
 
       <nav id="navbar" className="navbar navbar-expand-lg navbar-secondary bg-light">
-    <div className="container-fluid">
+    <div className="navCont container-fluid">
       <Link to="/duet" className="navbar-brand"><img src={logo} alt="Duet logo"/></Link>
       {/* <div className="collapse navbar-collapse" id="navbarColor03"> */}
-      <p id="loggedInAs">Logged in as {Auth.getProfile().data.username} <button id="logoutBtn" onClick={logout}>
+      <p id="loggedInAs">Logged in as <span id="username">{Auth.getProfile().data.username}</span> <button id="logoutBtn" onClick={logout}>
          Logout
       </button></p>
         <ul className="navbar-nav ml-auto">
@@ -50,7 +50,7 @@ function Navbar() {
   return (
 
     <nav id="navv" className="navbar navbar-expand-lg navbar-secondary bg-light">
-    <div className="container-fluid">
+    <div className="navCont container-fluid">
       <Link to="/duet" className="navbar-brand"><img src={logo}/></Link>
       {/* <div className="collapse navbar-collapse" id="navbarColor03"> */}
         <ul className="navbar-nav me-auto">
