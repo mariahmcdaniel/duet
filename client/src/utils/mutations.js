@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
-  mutation Login($username: String!, $password: String!) {
+  mutation login($username: String!, $password: String!) {
   login(username: $username, password: $password) {
     token
     user {
@@ -13,7 +13,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation AddUser($email: String!, $username: String!, $password: String!, $age: String, $city: String, $state: String, $interestedIn: String, $gender: String, $pronouns: String) {
+  mutation addUser($email: String!, $username: String!, $password: String!, $age: String, $city: String, $state: String, $interestedIn: String, $gender: String, $pronouns: String) {
   addUser(email: $email, username: $username, password: $password, age: $age, city: $city, state: $state, interestedIn: $interestedIn, gender: $gender, pronouns: $pronouns) {
     token
     user {
@@ -24,8 +24,17 @@ export const ADD_USER = gql`
 }
 `;
 
+export const DELETE_USER = gql`
+  mutation deleteUser {
+  deleteUser {
+    _id
+    username
+  }
+}
+`;
+
 export const UPDATE_ANSWERS = gql`
-mutation UpdateAnswers($songAnswers: SongAnswersInput!) {
+mutation updateAnswers($songAnswers: SongAnswersInput!) {
   updateAnswers(songAnswers: $songAnswers) {
     _id
     username
@@ -34,7 +43,7 @@ mutation UpdateAnswers($songAnswers: SongAnswersInput!) {
 `;
 
 export const UPDATE_PLAYLIST = gql`
-  mutation UpdatePlaylist($playlistAnswers: PlaylistAnswersInput!) {
+  mutation updatePlaylist($playlistAnswers: PlaylistAnswersInput!) {
   updatePlaylist(playlistAnswers: $playlistAnswers) {
     _id
     username
@@ -43,7 +52,7 @@ export const UPDATE_PLAYLIST = gql`
 `;
 
 export const CREATE_MATCH = gql`
-  mutation CreateMatch($userId: ID!) {
+  mutation createMatch($userId: ID!) {
   createMatch(userId: $userId) {
     _id
     status
@@ -68,7 +77,7 @@ export const CREATE_MATCH = gql`
 `;
 
 export const CREATE_MESSAGE = gql`
-mutation CreateMessage($matchId: ID!, $text: String!) {
+mutation createMessage($matchId: ID!, $text: String!) {
   createMessage(matchId: $matchId, text: $text) {
     createdAt
     sender {

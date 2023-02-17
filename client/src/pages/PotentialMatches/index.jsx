@@ -5,6 +5,7 @@ import { QUERY_USERS } from '../../utils/queries';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
 import No from './assets/no.png';
+// import './style.css';
 
 
 const User = ({ _id, username }) => {
@@ -30,12 +31,11 @@ const UserList = () => {
 
   if (!userList.length) return <h3>No Users</h3>;
   return (
-    <div className='container'>
+    <div className='container potentials'>
       <div className='m-5 row'>
         {userList.map((user) => {
           const question = questions.songQuestions[4].text;
           const song = user.songAnswers;
-          console.log(song)
           return (
             <div key={user._id} className='card mb-3 col-sm-12'>
               <img className='d-block user-select-none' src={user.photo} width='100%' height='200' role='img' />

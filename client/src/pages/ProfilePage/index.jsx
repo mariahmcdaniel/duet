@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
 import { CREATE_MATCH } from '../../utils/mutations';
 import questions from '../../utils/questions';
@@ -15,6 +15,19 @@ const UserPage = () => {
         variables: { userId: userId },
     });
 
+    const [ createMatch, { error } ] = useMutation(CREATE_MATCH, {
+        update(cache, { data: { createMatch } }) {
+            try {
+                cache.writeQuery({
+                    query: QUERY_USER,
+                    data: { user: createMatch },
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    });
+
     const user = data?.user || [];
 
     if (loading) {
@@ -25,13 +38,21 @@ const UserPage = () => {
         return <h3>No User</h3>
     }
 
-    
+
+    const handleCreateMatch = async (user) => {
+        try {
+            const { data } = await createMatch({
+                variables: { userId }
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const songQuestion = questions.songQuestions;
     const playlistQuestion = questions.playlistQuestions;
     const song = user.songAnswers;
-    console.log(user);
-    console.log(songQuestion);
+    
     return (
 
         <div className='container'>
@@ -48,7 +69,7 @@ const UserPage = () => {
                         <h4>{user.city}, {user.state}</h4>
                     </div>
                     <div>
-                        <a href='#'>
+                        <a href='#' onClick={handleCreateMatch}>
                             <img src={Yes}></img>
                         </a>
                         <a href='#'>
