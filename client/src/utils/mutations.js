@@ -24,6 +24,15 @@ export const ADD_USER = gql`
 }
 `;
 
+export const DELETE_USER = gql`
+  mutation deleteUser {
+  deleteUser {
+    _id
+    username
+  }
+}
+`;
+
 export const UPDATE_ANSWERS = gql`
 mutation UpdateAnswers($songAnswers: SongAnswersInput!) {
   updateAnswers(songAnswers: $songAnswers) {

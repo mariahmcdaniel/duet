@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, searchDeezerApi } from '../../utils/queries';
 import { CREATE_MATCH } from '../../utils/mutations';
 import questions from '../../utils/questions';
@@ -25,13 +25,33 @@ const UserPage = () => {
         return <h3>No User</h3>
     }
 
-    
+    const [ initiateMatch, { error } ] = useMutation(CREATE_MATCH, {
+        update(cache, { data: { initiateMatch } }) {
+            try {
+                cache.writeQuery({
+                    query: QUERY_USER,
+                    data: { user: initiateMatch },
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    });
+
+    const handleCreateMatch = async (user) => {
+        try {
+            const { data } = await initiateMatch({
+                variables: { user }
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const songQuestion = questions.songQuestions;
     const playlistQuestion = questions.playlistQuestions;
     const song = user.songAnswers;
-    console.log(user);
-    console.log(songQuestion);
+    
     return (
 
         <div className='container'>
@@ -48,7 +68,7 @@ const UserPage = () => {
                         <h4>{user.city}, {user.state}</h4>
                     </div>
                     <div>
-                        <a href='#'>
+                        <a href='#' onClick={handleCreateMatch}>
                             <img src={Yes}></img>
                         </a>
                         <a href='#'>

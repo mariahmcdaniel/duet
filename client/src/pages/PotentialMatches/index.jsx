@@ -5,6 +5,7 @@ import { QUERY_USERS } from '../../utils/queries';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
 import No from './assets/no.png';
+// import './style.css';
 
 
 const User = ({ _id, username }) => {
@@ -49,7 +50,7 @@ const UserList = () => {
 
   if (!userList.length) return <h3>No Users</h3>;
   return (
-    <div className='container'>
+    <div className='container potentials'>
       <div className='m-5 row'>
         {userList.map((user) => {
           const question = questions.songQuestions[4].text;
