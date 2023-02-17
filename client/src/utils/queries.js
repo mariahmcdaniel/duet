@@ -135,6 +135,20 @@ export const QUERY_MATCHES = gql`
 }
 `;
 
-export const searchDeezerApi = (query) => {
-  return fetch(`https://api.deezer.com/search?q=track:"${query}"`);
-};
+export const SEARCH_DEEZER = gql`
+  query searchDeezer($song: String!) {
+  searchDeezer(song: $song) {
+    id
+    title
+    preview
+    artist {
+      id
+      name
+    }
+    album {
+      id
+      cover_medium
+    }
+  }
+}
+`;

@@ -35,8 +35,7 @@ const UserList = () => {
       <div className='m-5 row'>
         {userList.map((user) => {
           const question = questions.songQuestions[4].text;
-          const song = user.songAnswers.four.
-          console.log(song)
+          const song = user.songAnswers;
           return (
             <div key={user._id} className='card mb-3 col-sm-12'>
               <img className='d-block user-select-none' src={user.photo} width='100%' height='200' role='img' />

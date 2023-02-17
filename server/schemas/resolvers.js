@@ -1,6 +1,7 @@
 const { AuthenticationError, ApolloError } = require('apollo-server-express');
 const { User, Match, Message } = require('../models');
 const { signToken } = require('../utils/auth');
+const axios = require('axios');
 
 const resolvers = {
   Query: {
@@ -27,6 +28,14 @@ const resolvers = {
           .populate('sender')
           .populate('receiver')
       }
+    },
+    searchDeezer: async (_parent, args) => {
+      const {data} = await axios.get(
+        `https://api.deezer.com/search/track/?q="${args.song}"&index=0&limit=2&output=json"`,
+        {
+          mode: "no-cors",
+        });
+      return data.data[0]
     }
   },
 
@@ -36,8 +45,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    deleteUser: async (_, args, { userId }) => {
-      return await User.findOneAndDelete({_id: userId})
+    deleteUser: async (_parent, _args, context) => {
+      if (context.user) {
+        return User.findOneAndDelete({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     updateAnswers: async (_, args, context) => {
       console.log(args)
@@ -63,11 +75,10 @@ const resolvers = {
       }
     },
     updatePhoto: async (_, args, context) => {
-      console.log(args)
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id }, 
-          { photo: args }, 
+          { $set: args },
           { new: true })
       } else {
         throw new AuthenticationError('You must be logged in to send messages');

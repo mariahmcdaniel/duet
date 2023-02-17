@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
-import { CREATE_MATCH } from '../../utils/mutations';
+import { DELETE_USER } from '../../utils/mutations';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
 import No from './assets/no.png';
@@ -11,12 +12,25 @@ import profileImage from '../../assets/profileImages/image2.png';
 
 const MyPage = () => {
     const { userId } = useParams();
+    
+    const [deleteUser, { error }] = useMutation(DELETE_USER);
+
+    const handleDeleteUser = async (user) => {
+        try {
+            const { data } = await deleteUser({
+                variables: { user }
+            });
+            window.location.replace('/accountDeleted');
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    
     const { loading, data } = useQuery(QUERY_ME, {
         variables: { _id: userId }
     });
-    console.log(data);
 
-    const user = data?.user || [];
+    const user = data?.me || {};
 
     if (loading) {
         return <h2>Loading...</h2>
@@ -29,8 +43,7 @@ const MyPage = () => {
     const songQuestion = questions.songQuestions;
     const playlistQuestion = questions.playlistQuestions;
     const song = user.songAnswers;
-    console.log(user);
-    console.log(songQuestion);
+    
     return (
 
         <div className='container'>
@@ -45,14 +58,6 @@ const MyPage = () => {
                     <div>
                         <img src={pin} width={20} height={20}></img>
                         <h4>{user.city}, {user.state}</h4>
-                    </div>
-                    <div>
-                        <a href='#'>
-                            <img src={Yes}></img>
-                        </a>
-                        <a href='#'>
-                            <img src={No}></img>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -120,6 +125,9 @@ const MyPage = () => {
                         <audio controls src={song.twelve.preview}></audio>
                     </div> */}
                 </div>
+            </div>
+            <div className='d-flex justify-content-center'>
+                <button onClick={() => {handleDeleteUser(user)}} className='btn btn-primary'>Delete Account</button>
             </div>
         </div>
     )

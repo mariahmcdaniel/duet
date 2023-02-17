@@ -1,9 +1,21 @@
 const { Schema, model, Questions } = require('mongoose');
 const bcrypt = require('bcrypt');
-const {playlistQuestionSchema, songQuestionSchema} = require('./Questions');
+const { playlistQuestionSchema, songQuestionSchema } = require('./Questions');
 
 
 const userSchema = new Schema({
+  firstName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
   username: {
     type: String,
     required: true,
@@ -48,7 +60,12 @@ const userSchema = new Schema({
 
   playlistAnswers: playlistQuestionSchema,
 
-  });
+  // matches: [{
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Match',
+  // }]
+
+});
 
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {

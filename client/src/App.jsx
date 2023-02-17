@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateProfile from './pages/CreateProfile';
 import UserPage from './pages/ProfilePage';
 import MyPage from './pages/myProfile';
+import DeletedAcctMessage from './components/DeletedAcctMessage';
+import MatchPage from './pages/Matches';
 import Questionaire from './pages/Questionaire';
 import Footer from './components/Footer';
 import Login from './pages/Login';
@@ -40,52 +42,62 @@ function App() {
       <Router>
         <div className="appCont container-fluid">
         <Header />
-        <Routes>
-        <Route
-            path='/'
-            element={<Home />}
-          />
+        <div className='min-vh-100'>
+          <Routes>
           <Route
-            path='/duet'
-            element={<Home />}
-          />
-          <Route
-            path='/createprofile'
-            element={<CreateProfile />}
-          />
-          <Route
-            path='/quest'
-            element={<Questionaire />}
-          />
-          <Route
-            path='/photo'
-            element={<PhotoQuestion />}
-          />
-          <Route
-            path='/login'
-            element={<Login />}
-          />
-          <Route
-            path='/feed'
-            element={<UserList />}
-          />
-          <Route
-            path='/users/:userId'
-            element={<UserPage />}
-          />
-          <Route
-            path='/me'
-            element={<MyPage />}
-          />
-          <Route
-            path='*'
-            element={(<div>
-            <h1 className='display-2'>Wrong page!</h1>
-            <img src ={lgLogo} alt='Duet Logo'/>
-            </div>
-            )}
-          />
-        </Routes>
+              path='/'
+              element={<Home />}
+            />
+            <Route
+              path='/duet'
+              element={<Home />}
+            />
+            <Route
+              path='/createprofile'
+              element={<CreateProfile />}
+            />
+            <Route
+              path='/quest'
+              element={<Questionaire />}
+            />
+            <Route
+              path='/photo'
+              element={<PhotoQuestion />}
+            />
+            <Route
+              path='/login'
+              element={<Login />}
+            />
+            <Route
+              path='/feed'
+              element={<UserList />}
+            />
+            <Route
+              path='/users/:userId'
+              element={<UserPage />}
+            />
+            <Route
+              path='/me'
+              element={<MyPage />}
+            />
+            <Route
+              path='/matches'
+              element={<MatchPage />}
+            />
+            <Route
+              path='/accountDeleted'
+              element={<DeletedAcctMessage />}
+            />
+            <Route
+              path='*'
+              element={(<div>
+              <h1 className='display-2'>Wrong page!</h1>
+              <img src ={lgLogo} alt='Duet Logo'/>
+              </div>
+              )}
+            />
+          </Routes>
+        </div>
         <Footer />
         </div>
       </Router>

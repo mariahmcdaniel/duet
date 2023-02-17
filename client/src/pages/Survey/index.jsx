@@ -21,123 +21,123 @@ const MusicAnswers = () =>{
   const albumAnswer = []
 }
 
-const renderSongQuestions = () => {
-  return songQuestions.map((question) => {
-    <p className="surveyQuestion" id={surveyQuestions.indexOf(question)+1}>{question}</p>
-  })
-};
+// const renderSongQuestions = () => {
+//   return songQuestions.map((question) => {
+//     <p className="surveyQuestion" id={surveyQuestions.indexOf(question)+1}>{question}</p>
+//   })
+// };
 
-  const [searchedBooks, setSearchedBooks] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
+//   const [searchedBooks, setSearchedBooks] = useState([]);
+//   const [searchInput, setSearchInput] = useState('');
 
-  const [savedSongIds, setSavedSongIds] = useState(getSavedBookIds());
-  const [saveSong, { error } ] = useMutation(UPDATE_ANSWERS);
-  const [savePlaylist, { err } ] = useMutation(UPDATE_PLAYLIST);
-  const [saveAlbum, { er } ] = useMutation(ADD_PHOTO);
+//   const [savedSongIds, setSavedSongIds] = useState(getSavedBookIds());
+//   const [saveSong, { error } ] = useMutation(UPDATE_ANSWERS);
+//   const [savePlaylist, { err } ] = useMutation(UPDATE_PLAYLIST);
+//   const [saveAlbum, { er } ] = useMutation(ADD_PHOTO);
 
-  useEffect(() => {
-    return () => saveBookIds(savedBookIds);
-  });
-
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!songInput) {
-      return false;
-    }
-
-    try {
-      const response = await searchDeezerApi(songInput);
-
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
-
-      const { items } = await response.json();
-
-      const songData = items.map((song) => (
-        `songquestion${cursor}:`+{
-        id: song.id,
-        title: song.title,
-        artist: song.artist,
-        songClip: song.preview,  
-        }
-      ));
-
-      setSearchResults(songData);
-      setSearchInput('');
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const handleSaveSong = async (id) => {
-    const songToSave = searchResults.find((song) => song.id === id);
-
-    try {      
-      const { data } = await saveSong({
-        variables: songToSave,
-      });
+//   useEffect(() => {
+//     return () => saveBookIds(savedBookIds);
+//   });
 
 
-      if (!data) {
-        throw new Error('something went wrong!');
-      }
-      setSavedSongIds([...savedSongIds, songToSave.id]);
+//   const handleFormSubmit = async (event) => {
+//     event.preventDefault();
+
+//     if (!songInput) {
+//       return false;
+//     }
+
+//     try {
+//       const response = await searchDeezerApi(songInput);
+
+//       if (!response.ok) {
+//         throw new Error('something went wrong!');
+//       }
+
+//       const { items } = await response.json();
+
+//       const songData = items.map((song) => (
+//         `songquestion${cursor}:`+{
+//         id: song.id,
+//         title: song.title,
+//         artist: song.artist,
+//         songClip: song.preview,  
+//         }
+//       ));
+
+//       setSearchResults(songData);
+//       setSearchInput('');
+//     } catch (err) {
+//       console.error(err);
+//     }
+//   };
+
+//   const handleSaveSong = async (id) => {
+//     const songToSave = searchResults.find((song) => song.id === id);
+
+//     try {      
+//       const { data } = await saveSong({
+//         variables: songToSave,
+//       });
+
+
+//       if (!data) {
+//         throw new Error('something went wrong!');
+//       }
+//       setSavedSongIds([...savedSongIds, songToSave.id]);
       
 
-    } catch (err) {
-      console.error(err);
-    }
-  };
+//     } catch (err) {
+//       console.error(err);
+//     }
+//   };
 
-  const handleSavePlaylist = async (id) => {
-    const songToSave = searchResults.find((song) => song.id === id);
+//   const handleSavePlaylist = async (id) => {
+//     const songToSave = searchResults.find((song) => song.id === id);
 
-    try {      
-      const { data } = await saveSong({
-        variables: songToSave,
-      });
+//     try {      
+//       const { data } = await saveSong({
+//         variables: songToSave,
+//       });
 
 
-      if (!data) {
-        throw new Error('something went wrong!');
-      }
-      setSavedSongIds([...savedSongIds, songToSave.id]);
+//       if (!data) {
+//         throw new Error('something went wrong!');
+//       }
+//       setSavedSongIds([...savedSongIds, songToSave.id]);
       
 
-    } catch (err) {
-      console.error(err);
-    }
-  };
+//     } catch (err) {
+//       console.error(err);
+//     }
+//   };
 
 
- return (
- <div>
+//  return (
+//  <div>
 
-  <header>
-    <h3>Music Preference Survey</h3>
-  </header>
-  <div className="questionContaner">{renderSongQuestions()}</div>
-  <form onSubmit={handleFormSubmit()}>
+//   <header>
+//     <h3>Music Preference Survey</h3>
+//   </header>
+//   <div className="questionContaner">{renderSongQuestions()}</div>
+//   <form onSubmit={handleFormSubmit()}>
     
-    <div className="form-group">
-      <label htmlFor="songInput" className="form-label mt-4">Song Title:</label>
-      <input type="text" className="form-control" id="songInput" name="songInput" value={formData.songInput} placeholder="Enter Song Name"/>
-    </div>
-    <button type="submit" className="btn btn-primary">Search</button>
+//     <div className="form-group">
+//       <label htmlFor="songInput" className="form-label mt-4">Song Title:</label>
+//       <input type="text" className="form-control" id="songInput" name="songInput" value={formData.songInput} placeholder="Enter Song Name"/>
+//     </div>
+//     <button type="submit" className="btn btn-primary">Search</button>
     
-    <div className="searchResults">{searchResults.map((song) =>{
-      return (
-        <button key={song.id} onClick={handleSaveSong(song.id)} value={song.title}>{song.title} - {song.artist}</button>
-      )
-    })}
-    </div>
+//     <div className="searchResults">{searchResults.map((song) =>{
+//       return (
+//         <button key={song.id} onClick={handleSaveSong(song.id)} value={song.title}>{song.title} - {song.artist}</button>
+//       )
+//     })}
+//     </div>
 
     
   
-  </form>
- </div>
- )
-}
+//   </form>
+//  </div>
+//  )
+// }

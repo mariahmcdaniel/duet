@@ -1,12 +1,13 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
-import { useMutation } from '@apollo/client';
-import { UPDATE_ANSWERS } from '../utils/mutations';
+import { useMutation, useLazyQuery } from '@apollo/client';
+import { UPDATE_ANSWERS, UPDATE_PHOTO } from '../utils/mutations';
+import { SEARCH_DEEZER } from '../utils/queries';
 
 const Questionaire = () => {
   // const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     one: '',
     two: '',
     three: '',
@@ -21,22 +22,34 @@ const Questionaire = () => {
     twelve: '',
 
   });
-
+  const [searchDeezer, { data, loading }] = useLazyQuery(SEARCH_DEEZER);
   const [updateAnswers, { error }] = useMutation(UPDATE_ANSWERS);
+  const [updatePhoto] = useMutation(UPDATE_PHOTO);
+
+  const songs = data?.searchDeezer || {};
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setForm({ ...form, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log('FORMDATA', formData)
-      const { data } = await updateAnswers({
-        variables: { songAnswers: { ...formData } },
+      const { data } = await searchDeezer({
+        variables: {
+          song: form.four
+        }
       });
-      window.location.replace('/photo')
+
+      await updateAnswers({
+        variables: { songAnswers: { ...form } },
+      });
+
+      await updatePhoto({
+        variables: { photo: data.searchDeezer.album.cover_medium }
+      })
+      // window.location.replace('/photo')
 
     } catch (e) {
       console.error(e);
@@ -44,34 +57,39 @@ const Questionaire = () => {
   };
 
   const styles = {
-      ptag: {
-        fontSize: 20,
-        fontWeight: 700,
-        color: "#000000",
-      },
-    };
+    ptag: {
+      fontSize: 20,
+      fontWeight: 700,
+      color: "#000000",
+    },
+  };
 
- 
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
 
   return (
     <main className="container d-flex justify-content-center">
       <div className="row p-3 m-3">
-      <form style={styles.ptag} onSubmit={handleFormSubmit}>
-        <fieldset>
-          <div className="form-group">
-            <p>You've had a long day but you really need to get a workout in. What song gets you ready to hit the gym?</p>
-            <input
-              className="form-control"
-              name="one"
-              value={formData.one}
-              onChange={handleChange} />
-          </div>
-          <div className="form-group">
+        <div>
+          <pre>{JSON.stringify(songs, null, 2)}</pre>
+        </div>
+        <form style={styles.ptag} onSubmit={handleFormSubmit}>
+          <fieldset>
+            <div className="form-group">
+              <p>You've had a long day but you really need to get a workout in. What song gets you ready to hit the gym?</p>
+              <input
+                className="form-control"
+                name="one"
+                value={form.one}
+                onChange={handleChange} />
+            </div>
+            <div className="form-group">
             <p>You must sacrifice yourself to say the world from peril. What song is playing in your final battle scene?</p>
             <input
               className="form-control"
               name="two"
-              value={formData.two}
+              value={form.two}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -79,23 +97,15 @@ const Questionaire = () => {
             <input
               className="form-control"
               name="three"
-              value={formData.three}
-              onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <p>You're on a 7 hour flight with a crying baby. What song do you put on to restore your peace and drown out the noise?</p>
-            <input
-              className="form-control"
-              name="four"
-              value={formData.four}
+              value={form.three}
               onChange={handleChange} />
           </div>
           <div className="form-group">
             <p>Your life is is a movie. What is the theme song?</p>
             <input
               className="form-control"
-              name="five"
-              value={formData.five}
+              name="four"
+              value={form.four}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -103,7 +113,7 @@ const Questionaire = () => {
             <input
               className="form-control"
               name="six"
-              value={formData.six}
+              value={form.six}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -111,7 +121,7 @@ const Questionaire = () => {
             <input
               className="form-control"
               name="seven"
-              value={formData.seven}
+              value={form.seven}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -119,7 +129,7 @@ const Questionaire = () => {
             <input
               className="form-control"
               name="eight"
-              value={formData.eight}
+              value={form.eight}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -127,7 +137,7 @@ const Questionaire = () => {
             <input
               className="form-control"
               name="nine"
-              value={formData.nine}
+              value={form.nine}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -135,7 +145,7 @@ const Questionaire = () => {
             <input
               className="form-control"
               name="ten"
-              value={formData.ten}
+              value={form.ten}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -143,7 +153,7 @@ const Questionaire = () => {
             <input
               className="form-control"
               name="eleven"
-              value={formData.eleven}
+              value={form.eleven}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -151,12 +161,12 @@ const Questionaire = () => {
             <input
               className="form-control"
               name="twelve"
-              value={formData.twelve}
+              value={form.twelve}
               onChange={handleChange} />
           </div>
-          <button type="submit" className="btn btn-primary m-1 p-2">Submit</button>
-        </fieldset>
-      </form>
+            <button type="submit" className="btn btn-primary m-1 p-2">Submit</button>
+          </fieldset>
+        </form>
       </div>
     </main>
   );
