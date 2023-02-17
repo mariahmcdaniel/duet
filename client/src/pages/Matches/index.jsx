@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MATCHES } from '../../utils/queries';
 
@@ -16,18 +15,16 @@ const MatchPage = () => {
     return (
         <div className='container'>
             <div className='m-5 row'>
-                {matchList.map((match) => {
-                    return (
-                        <div className='card mb-3 col-sm-12'>
-                            <div className='d-flex justify-content-start'>
-                                <h4>{match.sender.username}</h4>
-                            </div>
-                            <div className='d-flex justify-content-end'>
-                                <button className='btn btn-primary'>Chat</button>
-                            </div>
-                        </div>
-                    );
-                })}
+                <ul className="list-group">
+                    {matchList.map((match) => {
+                        return (
+                            <li className="list-group-item d-flex justify-content-between align-items-center display-5">
+                                {match.sender.username}
+                                <button className="btn btn-primary">Chat</button>
+                            </li>
+                        );
+                    })}
+                </ul>
             </div>
         </div>
     );
