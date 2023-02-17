@@ -1,8 +1,8 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useMutation, useLazyQuery } from '@apollo/client';
-import { UPDATE_ANSWERS, UPDATE_PHOTO } from '../utils/mutations';
-import { SEARCH_DEEZER } from '../utils/queries';
+import { UPDATE_ANSWERS, UPDATE_PHOTO } from '../../utils/mutations';
+import { SEARCH_DEEZER } from '../../utils/queries';
 
 const Questionaire = () => {
   // const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Questionaire = () => {
       await updatePhoto({
         variables: { photo: data.searchDeezer.album.cover_medium }
       })
-      // window.location.replace('/photo')
+      window.location.replace('/photo')
 
     } catch (e) {
       console.error(e);
