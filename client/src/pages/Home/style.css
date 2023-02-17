@@ -1,7 +1,7 @@
-#homeContainer {
+.homeContainer {
  box-sizing: content-box !important;
- font-size: clamp(1rem, 2.5vw, 2rem);
- font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
+ font-size: clamp(1.4rem, 2.5vw, 2rem);
+ font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
  margin-bottom: 50px;
  margin-right: 700px; 
  margin-left: 17px !important;
@@ -10,47 +10,45 @@
 #homeRow {
   flex-direction: column;
   align-items:center;
+  
 }
 
 #match {
-  display: flex !important;
-  align-items: flex-start;
-  flex-direction: column;
   margin-left: 300px;
-  margin-top: 40px;
-  padding:60px;
-  background-color: #E275A5;
-  border: #b45e83 solid 2px;
-  margin-top: 30px;
+  margin-top: 70px;
+  padding:20px 50px;
+  background-image: linear-gradient(-8deg, rgba(235, 181, 204, 0.8) 1%, rgba(226,117,165,1) 82%);
+  border: #b45e8377 solid 2px;
   margin-bottom: 30px;
-  min-width: 400px;
-  filter: drop-shadow(10px 7px 12px #e6e7cf);
+  width: calc(10vw + 200px);
+  filter: drop-shadow(10px 7px 14px #e6e7cf88);
+  border-radius: 40px;
 }
 
 #pitch {
-  display: flex !important;
-  align-items: flex-end;
-  flex-direction: column;
   margin-right: 300px;
-  padding:60px;
-  background-color: #DE99B8;
-  border: #c285a0 solid 2px;
+  padding:20px 50px;
+  background-image: linear-gradient(-3deg, rgba(235, 188, 208, 0.8) 1%, rgb(206, 136, 166) 82%);
+  border: #c285a077 solid 2px;
   margin-top: 30px;
   margin-bottom: 30px;
-  min-width: 400px;
-  filter: drop-shadow(10px 7px 12px #e6e7cf);
+  width: calc(10vw + 200px);
+  filter: drop-shadow(5px 5px 14px #e6e7cf88);
+  border-radius: 40px;
 }
 
 #then {
-  display: flex !important;
-  align-items: flex-start;
-  flex-direction: column;
   margin-left: 300px;
-  padding:60px;
-  background-color: #E3BCCD;
+  padding:20px 50px;
+  background-image: linear-gradient(-3deg, rgba(235, 204, 217, 0.8) 1%, rgb(210, 160, 182) 82%);
   border: 2px solid #bc9aa9;
   margin-top: 30px;
   margin-bottom: 30px;
-  min-width: 400px;
+  width: calc(10vw + 200px);
   filter: drop-shadow(10px 7px 12px #e6e7cf);
+  border-radius: 40px;
 }
+
+/* @media (max-width: 1024px) {
+  #match, #pitch, #then { width: 200px; }
+} */

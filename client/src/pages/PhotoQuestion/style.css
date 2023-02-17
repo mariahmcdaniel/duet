@@ -4,7 +4,7 @@
 
 .imgrow {
   flex-direction: row;
-  justify-content:  flex-end;
+  justify-content:  center;
   vertical-align: auto !important;
 }
 
@@ -14,4 +14,37 @@
 
 label {
   text-align: center;
+}
+
+#playlistSubmit{
+  margin-left: 200px;
+  margin-top: 50px;
+  padding: 10px 70px;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  background-image: linear-gradient(-3deg, rgba(210, 181, 149, 0.8) 1%, rgb(232, 50, 131) 82%);
+  filter: drop-shadow(5px 5px 14px #e6e7cf88);
+}
+
+.imgContainer {
+  margin-right: 400px;
+}
+
+.playlistQuestion {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  border: 2px solid #d2b595;
+  margin: 40px 10px;
+  background-image: linear-gradient(-3deg, rgba(237, 207, 175, 0.8) 1%, rgb(230, 218, 207) 82%);
+  color: #3f353a;
+  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 8px;
+  filter: drop-shadow(5px 5px 14px #e6e7cf88);
+}
+
+.playlistSelect {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+#rtLabel {
+  margin-left: 150px;
 }

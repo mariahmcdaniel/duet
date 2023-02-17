@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -30,7 +30,7 @@ body {
   min-width: 1000px;
   min-height: 100vh;
   background-image: linear-gradient(90deg,#4f8293,#7f8090,#a3768a) !important;
-  font-family: 'perpetua';
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
 h1 {
@@ -69,3 +69,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* .appCont {
+  margin-right: px !important;
+} */

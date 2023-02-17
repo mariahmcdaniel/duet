@@ -5,7 +5,7 @@ import { QUERY_USERS } from '../../utils/queries';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
 import No from './assets/no.png';
-// import './style.css';
+import './style.css';
 
 
 const User = ({ _id, username }) => {
@@ -43,7 +43,7 @@ const UserList = () => {
                 <h4>{user.username}</h4>
               </div>
               <div className='d-flex justify-content-center'>
-                <p className='card-text'>Question: {question}</p>
+                <p className='card-text'>{question}</p>
               </div>
               <div className='d-flex justify-content-center mt-3'>
                 {/* <p className='card-text'>Answer Goes Here {song.four}</p> */}
