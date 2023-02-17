@@ -1,17 +1,16 @@
-import { useState } from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
 import "bootswatch/dist/quartz/bootstrap.min.css";
 import './components/Navbar/style.css';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CreateProfile from './pages/CreateProfile';
+import CreateProfile from './pages/HandleUser/CreateProfile';
 import UserPage from './pages/ProfilePage';
 import MyPage from './pages/myProfile';
 import DeletedAcctMessage from './components/DeletedAcctMessage';
 import MatchPage from './pages/Matches';
-import Questionaire from './pages/Questionaire';
+import Questionaire from './pages/HandleUser/Questionaire';
 import Footer from './components/Footer';
-import Login from './pages/Login';
+import Login from './pages/HandleUser/Login';
 import UserList from './pages/PotentialMatches';
 import Header from './components/Header';
 import lgLogo from './Duet-Logo-lg.png';

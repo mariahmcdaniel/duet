@@ -1,13 +1,15 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const ProfileForm = () => {
   // const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const [form, setFormData] = useState({
     username: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     age: '18',
@@ -21,15 +23,15 @@ const ProfileForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...form, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
+    console.log("USERBABY", form)
     try {
       const { data } = await addUser({
-        variables: { ...formData },
+        variables: { ...form },
       });
 
       Auth.login(data.addUser.token);
@@ -55,6 +57,28 @@ const ProfileForm = () => {
         <fieldset>
 
           <div className="form-group">
+            <label htmlFor="firstNameinput" className="form-label mt-4">First Name</label>
+            <input
+              type="firstName"
+              className="form-control"
+              id="firstNameinput"
+              placeholder="Enter first name"
+              name="firstName"
+              value={form.firstName}
+              onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lastNameinput" className="form-label mt-4">Last Name</label>
+            <input
+              type="lastName"
+              className="form-control"
+              id="lastNameinput"
+              placeholder="Enter last name"
+              name="lastName"
+              value={form.lastName}
+              onChange={handleChange} />
+          </div>
+          <div className="form-group">
             <label htmlFor="usernameinput" className="form-label mt-4">Username</label>
             <input
               type="username"
@@ -62,7 +86,7 @@ const ProfileForm = () => {
               id="usernameinput"
               placeholder="Enter username"
               name="username"
-              value={formData.username}
+              value={form.username}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -74,7 +98,7 @@ const ProfileForm = () => {
               aria-describedby="emailHelp"
               placeholder="Enter email" 
               name="email"
-              value={formData.email}
+              value={form.email}
               onChange={handleChange}/>
           </div>
           <div className="form-group">
@@ -85,7 +109,7 @@ const ProfileForm = () => {
               id="passwordinput"
               placeholder="Password"
               name="password"
-              value={formData.password}
+              value={form.password}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -96,7 +120,7 @@ const ProfileForm = () => {
               id="cityinput"
               placeholder="City"
               name="city"
-              value={formData.city}
+              value={form.city}
               onChange={handleChange} />
           </div>
           <div className="form-group">
@@ -107,7 +131,7 @@ const ProfileForm = () => {
               id="stateinput"
               placeholder="State" 
               name="state"
-              value={formData.state}
+              value={form.state}
               onChange={handleChange}/>
           </div>
           <div className="form-group">
@@ -116,7 +140,7 @@ const ProfileForm = () => {
               className="form-select"
               id="pronounSelect"
               name="pronouns"
-              value={formData.pronouns}
+              value={form.pronouns}
               onChange={handleChange}>
               <option>She/Her</option>
               <option>He/Him</option>
@@ -131,7 +155,7 @@ const ProfileForm = () => {
               className="form-select"
               id="genderSelect"
               name="gender"
-              value={formData.gender}
+              value={form.gender}
               onChange={handleChange}>
               <option>Male</option>
               <option>Female</option>
@@ -147,7 +171,7 @@ const ProfileForm = () => {
               className="form-select"
               id="ageSelect"
               name="age"
-              value={formData.age}
+              value={form.age}
               onChange={handleChange}>
               <option>18</option>
               <option>19</option>
@@ -163,7 +187,7 @@ const ProfileForm = () => {
               className="form-select"
               id="interestSelect"
               name="interestedIn"
-              value={formData.interestedIn}
+              value={form.interestedIn}
               onChange={handleChange}>
               <option>Friendship</option>
               <option>Relationship</option>
