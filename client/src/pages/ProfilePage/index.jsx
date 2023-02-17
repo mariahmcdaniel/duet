@@ -7,6 +7,7 @@ import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
 import No from './assets/no.png';
 import pin from './assets/pin.png';
+import './style.css';
 
 const UserPage = () => {
   const { userId } = useParams();

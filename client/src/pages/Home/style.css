@@ -17,7 +17,7 @@
   margin-left: 300px;
   margin-top: 70px;
   padding:20px 50px;
-  background-image: linear-gradient(-8deg, rgba(235, 181, 204, 0.8) 1%, rgba(226,117,165,1) 82%);
+  background-image: linear-gradient(-8deg, rgba(235, 181, 204, 0.8) 1%, rgb(226, 117, 165) 82%);
   border: #b45e8377 solid 2px;
   margin-bottom: 30px;
   width: calc(10vw + 200px);
@@ -40,13 +40,18 @@
 #then {
   margin-left: 300px;
   padding:20px 50px;
-  background-image: linear-gradient(-3deg, rgba(235, 204, 217, 0.8) 1%, rgb(210, 160, 182) 82%);
+  background-image: linear-gradient(-8deg, rgba(235, 204, 217, 0.8) 1%, rgb(210, 160, 182) 82%);
   border: 2px solid #bc9aa9;
   margin-top: 30px;
   margin-bottom: 30px;
   width: calc(10vw + 200px);
-  filter: drop-shadow(10px 7px 12px #e6e7cf);
+  filter: drop-shadow(10px 7px 12px #e6e7cfb9);
   border-radius: 40px;
+}
+
+#thenDuet {
+  text-shadow: -2px 2px 7px rgba(121, 34, 73, 0.86);
+  font-weight: bold;
 }
 
 /* @media (max-width: 1024px) {
