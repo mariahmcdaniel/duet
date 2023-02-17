@@ -109,7 +109,7 @@ const typeDefs = gql`
       gender: String,
       pronouns: String
       ): Auth
-    deleteUser(userId: ID!): User
+    deleteUser: User
     updateAnswers(songAnswers: SongAnswersInput!): User
     updatePlaylist(playlistAnswers: PlaylistAnswersInput!): User
     updatePhoto(photo: String!): User
