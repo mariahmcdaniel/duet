@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_USER, searchDeezerApi } from '../../utils/queries';
+import { QUERY_USER } from '../../utils/queries';
 import { CREATE_MATCH } from '../../utils/mutations';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
