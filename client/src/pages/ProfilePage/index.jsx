@@ -88,12 +88,12 @@ const UserPage = () => {
           <img src={user.photo} width={400} height={400}></img>
         </div>
         <div className='col-6'>
-          <h3 className='display-3 mt-3'>{user.username}</h3>
+          <h3 className='display-3 mt-3'>{user.firstName}</h3>
           <h4>{user.age} | {user.pronouns}</h4>
           <p>Interested in {user.interestedIn}.</p>
-          <div>
+          <div className='d-flex justify-content-start'>
             <img src={pin} width={20} height={20}></img>
-            <h4>{user.city}, {user.state}</h4>
+            <h4 className='ms-1'>{user.city}, {user.state}</h4>
           </div>
           <div>
             <a href='#' onClick={handleCreateMatch}>
@@ -107,8 +107,8 @@ const UserPage = () => {
           </div>
           <div>
 
-            <button className='btn btn-primary'>
-              <Link to={"/feed"}>
+            <button className='btn btn-secondary mt-2'>
+              <Link to={"/feed"} className='text-light'>
                 Back to feed
                 </Link>
             </button>
