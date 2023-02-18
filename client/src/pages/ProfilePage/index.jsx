@@ -23,6 +23,9 @@ const UserPage = () => {
   const findSong = async (event) => {
     event.preventDefault();
     try {
+      // not destructuring
+      // const mySearchDeezerData = await searchDeezer({ ...})
+      // const data = mySearchDeezerData.data;
       const { data } = await searchDeezer({
         variables: {
           song: event.target.id
