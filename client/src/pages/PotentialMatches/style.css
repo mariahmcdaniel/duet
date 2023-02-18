@@ -1,3 +1,11 @@
 .potentials {
   font-size: clamp(1rem, 2.5vw, 2rem);
 }
+
+.potImg {
+  padding-top: 50px;
+}
+
+.potCard {
+  place-items: center;
+}

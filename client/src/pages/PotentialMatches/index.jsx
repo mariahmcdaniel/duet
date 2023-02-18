@@ -49,8 +49,8 @@ const UserList = () => {
           const question = questions.songQuestions[3].text;
           const song = user.songAnswers;
           return (
-            <div key={user._id} className='card mb-3 col-sm-12'>
-              <img className='d-block user-select-none' src={user.photo} width='100%' height='200' role='img' />
+            <div key={user._id} className='card mb-3 col-sm-12 potCard'>
+              <img className='potImg d-block user-select-none' src={user.photo} width='80%' role='img' />
               <div className='card-body d-flex justify-content-center'>
                 <h4 className='display-4'>{user.firstName}</h4>
               </div>
