@@ -11,7 +11,7 @@ const DeletedAcctMessage = () => {
             </div>
             <div className='row'>
                 <div className='d-flex justify-content-center'>
-                    <button className='btn btn-primary'><Link to={{ pathname: '/'}} className='text-light'>Back to Home</Link></button>
+                    <button id="deletedAcct" className='btn btn-primary'><Link to={{ pathname: '/'}} className='text-light'>Back to Home</Link></button>
                 </div>
             </div>
         </div>

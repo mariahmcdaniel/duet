@@ -1,0 +1,35 @@
+#submitQuest {
+  margin-top: 50px;
+  padding: 10px 70px;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  background-image: linear-gradient(-3deg, rgba(210, 181, 149, 0.8) 1%, rgb(232, 50, 131) 82%);
+  filter: drop-shadow(5px 5px 14px #e6e7cf88);
+  margin-left: 400px;
+}
+
+.questQuest {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border: 2px solid #d2b595;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  background-image: linear-gradient(-3deg, rgba(237, 207, 175, 0.8) 1%, rgb(230, 218, 207) 82%);
+  color: #3f353a;
+  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 10px !important;
+  filter: drop-shadow(5px 5px 14px #e6e7cf88);
+  text-align: center;
+  width: calc(50vw + 200px);
+}
+
+input {
+  background-color: #ffffff24 !important;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  width: calc(20vw + 150px);
+}
+
+.lineQuest {
+  padding: 4px;
+  border-bottom: 2px solid rgba(245, 245, 245, 0.283);
+}
