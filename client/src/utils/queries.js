@@ -81,6 +81,7 @@ export const QUERY_ME = gql`
     interestedIn
     password
     pronouns
+    photo
     state
     username
     firstName
