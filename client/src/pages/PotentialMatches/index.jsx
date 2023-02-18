@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_USERS } from '../../utils/queries';
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_USERS, QUERY_USER } from '../../utils/queries';
+import { CREATE_MATCH } from '../../utils/mutations';
 import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
 import No from './assets/no.png';
@@ -13,7 +14,28 @@ const UserList = () => {
   const { loading, data } = useQuery(QUERY_USERS);
   const userList = data?.users || [];
 
-  console.log(userList)
+  const [createMatch, { error }] = useMutation(CREATE_MATCH, {
+    update(cache, { data: { createMatch } }) {
+      try {
+        cache.writeQuery({
+          query: QUERY_USER,
+          data: { user: createMatch },
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  });
+
+  const handleCreateMatch = async (user) => {
+    try {
+      const { data } = await createMatch({
+        variables: { userId }
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   if (loading) {
     return <h2>Loading...</h2>
@@ -24,19 +46,16 @@ const UserList = () => {
     <div className='container potentials'>
       <div className='m-5 row'>
         {userList.map((user) => {
-          const question = questions.songQuestions[4].text;
+          const question = questions.songQuestions[3].text;
           const song = user.songAnswers;
           return (
             <div key={user._id} className='card mb-3 col-sm-12'>
               <img className='d-block user-select-none' src={user.photo} width='100%' height='200' role='img' />
               <div className='card-body d-flex justify-content-center'>
-                <h4>{user.username}</h4>
+                <h4 className='display-4'>{user.firstName}</h4>
               </div>
               <div className='d-flex justify-content-center'>
-                <p className='card-text'>{question}</p>
-              </div>
-              <div className='d-flex justify-content-center mt-3'>
-                {/* <p className='card-text'>Answer Goes Here {song.four}</p> */}
+                <p className='card-text m-3 justify-content-center'>If {user.firstName}'s life was a movie, "{song.four}" would be the theme song.</p>
               </div>
               <div className= 'd-flex justify-content-center mt-4'>
                 <button className='btn btn-info'>
@@ -44,7 +63,7 @@ const UserList = () => {
                 </button>
               </div>
               <div className='card-body d-flex justify-content-center'>
-                <a href='#'>
+                <a href='#' onClick={handleCreateMatch}>
                   <img src={Yes}></img>
                 </a>
                 <a href='#'>
