@@ -25,7 +25,7 @@ When a User opens the site they will be offered a chance to login or sign up for
   ## Contributing
  This masterpiece of an application was completed by these beautiful individuals: 
  - Mariah ~ mariahmcdaniel
- - Ryan ~ Ryan Young
+ - Ryan ~ ryan-young17
  - Scott ~ Simplerer
  - Tanner ~ ChampionTan
 
