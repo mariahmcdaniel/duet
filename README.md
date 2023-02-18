@@ -31,7 +31,8 @@ When a User opens the site they will be offered a chance to login or sign up for
 
   ## Questions
   If you need any more information on using this application reach out to one of the contributors through their GitHub handle for assistance.
- - [BelenGigante](https://github.com/BelenGigante)
+ - [ryan-young17](https://github.com/ryan-young17)
  - [mariahmcdaniel](https://github.com/mariahmcdaniel)
  - [Simplerer](https://github.com/simplerer)
- - [Eight19](https://github.com/Eight19)
+ - [ChampionTan](https://github.com/ChampionTan)
+ 
