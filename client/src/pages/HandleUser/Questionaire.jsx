@@ -68,9 +68,6 @@ const Questionaire = () => {
     <main>
       <div id="questCont" className="container d-flex justify-content-center">
         <div className="row p-3 m-3">
-          <div>
-            <pre>{JSON.stringify(songs, null, 2)}</pre>
-          </div>
           <form style={styles.ptag} onSubmit={handleFormSubmit}>
             <fieldset>
               <div className="form-group">
