@@ -79,11 +79,7 @@ const UserPage = () => {
     qText: {
       fontSize: "130%",
       fontWeight: 500,
-      // color: "#000000",
     },
-    // cursor: {
-    //   cursor: 
-    // }
   };
 
 
