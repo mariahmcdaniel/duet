@@ -26,10 +26,6 @@ export const QUERY_USER = gql`
       six
       seven
       eight
-      nine
-      ten
-      eleven
-      twelve
     }
     state
     username
@@ -66,13 +62,9 @@ export const QUERY_USERS = gql`
       three
       four
       five
-    six
+      six
       seven
       eight
-      nine
-      ten
-      eleven
-      twelve
     }
   }
 }
@@ -104,13 +96,9 @@ export const QUERY_ME = gql`
       three
       four
       five
-    six
+      six
       seven
       eight
-      nine
-      ten
-      eleven
-      twelve
     }
   }
 }
