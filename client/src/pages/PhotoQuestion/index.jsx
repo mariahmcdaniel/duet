@@ -52,7 +52,6 @@ const PhotoQuestion = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log('FORMDATA', formData)
       const { data } = await updatePlaylist({
         variables: { playlistAnswers: { ...formData } },
       });
