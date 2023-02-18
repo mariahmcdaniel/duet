@@ -34,10 +34,6 @@ const typeDefs = gql`
     six: String!
     seven: String!
     eight: String!
-    nine: String!
-    ten: String!
-    eleven: String!
-    twelve: String!
   }
 
   type PlaylistAnswers {

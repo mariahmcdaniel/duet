@@ -7,6 +7,7 @@ import { DELETE_USER } from '../../utils/mutations';
 import questions from '../../utils/questions';
 import pin from './assets/pin.png';
 import profileImage from '../../assets/profileImages/image2.png';
+import './style.css';
 
 const MyPage = () => {
     const { userId } = useParams();
@@ -54,8 +55,7 @@ const MyPage = () => {
                     <h4>{user.age} | {user.pronouns}</h4>
                     <p>Interested in {user.interestedIn}.</p>
                     <div>
-                        <img src={pin} width={20} height={20}></img>
-                        <h4>{user.city}, {user.state}</h4>
+                        <h4><img src={pin} width={20} height={20}></img> {user.city}, {user.state}</h4>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@ const MyPage = () => {
                 </div>
             </div>
             <div className='d-flex justify-content-center'>
-                <button onClick={() => {handleDeleteUser(user)}} className='btn btn-primary'>Delete Account</button>
+                <button id="deleteAccount" onClick={() => {handleDeleteUser(user)}} className='btn btn-primary'>Delete Account</button>
             </div>
         </div>
     )

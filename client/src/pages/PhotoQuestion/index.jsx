@@ -84,7 +84,6 @@ const PhotoQuestion = () => {
           name="one"
           value={formData.one}
           onChange={handleChange}>
-            <option value="" disabled selected>Select a playlist</option>
             <option value="1">Playlist 1</option>
             <option value="2">Playlist 2</option>
             <option value="3">Playlist 3</option>
@@ -123,7 +122,6 @@ const PhotoQuestion = () => {
           name="two"
           value={formData.two}
           onChange={handleChange}>
-            <option value="" disabled selected>Select a playlist</option>
             <option value="1">Playlist 1</option>
             <option value="2">Playlist 2</option>
             <option value="3">Playlist 3</option>
@@ -163,7 +161,6 @@ const PhotoQuestion = () => {
           name="three"
           value={formData.three}
           onChange={handleChange}>
-            <option value="" disabled selected>Select a playlist</option>
             <option value="1">Playlist 1</option>
             <option value="2">Playlist 2</option>
             <option value="3">Playlist 3</option>

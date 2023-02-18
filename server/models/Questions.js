@@ -9,10 +9,6 @@ const songQuestionSchema = new Schema({
 	six: { type: String},
 	seven: { type: String},
 	eight: { type: String},
-	nine: { type: String},
-	ten: { type: String},
-	eleven: { type: String},
-	twelve: { type: String},
 });
 
 const playlistQuestionSchema = new Schema({

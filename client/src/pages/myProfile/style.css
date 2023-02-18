@@ -1,0 +1,9 @@
+#deleteAccount {
+  padding: 10px 30px;
+  font-size: clamp(.7rem, 1.1vw, 1rem);
+  background-image: linear-gradient(-3deg, rgba(62, 20, 20, 0.8) 1%, rgb(232, 50, 131) 82%);
+  filter: drop-shadow(5px 5px 14px #00000088);
+  text-shadow: -2px 2px 7px rgba(16, 4, 9, 0.86);
+  font-weight: bold;
+  margin-top: 200px;
+}

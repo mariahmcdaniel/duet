@@ -1,0 +1,15 @@
+#deletedAcct {
+  padding: 10px 30px;
+  color: whitesmoke;
+  font-size: clamp(.7rem, 1.1vw, 1rem);
+  background-image: linear-gradient(-3deg, rgba(232, 50, 131, 0.8) 1%, rgb(62, 20, 20,) 82%);
+  filter: drop-shadow(5px 5px 14px #00000088);
+  text-shadow: -2px 2px 7px rgba(16, 4, 9, 0.86);
+  font-weight: bold;
+  margin-top: 200px;
+}
+
+h4 {
+  font-size: clamp(1.7rem, 1.5vw, 2.2rem);
+}
+
