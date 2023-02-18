@@ -19,23 +19,18 @@ const UserPage = () => {
   const songs = dataS?.searchDeezer || {};
 
   const [selectedSong, setSelectedSong] = useState('')
+  const [songTitle, setSongTitle] = useState('')
   
   const findSong = async (event) => {
     event.preventDefault();
     try {
-      // not destructuring
-      // const mySearchDeezerData = await searchDeezer({ ...})
-      // const data = mySearchDeezerData.data;
       const { data } = await searchDeezer({
         variables: {
           song: event.target.id
         }
       })
-      console.log("API SEARCH",data)
-      console.log("SONGS",songs)
-
-
       await setSelectedSong(data.searchDeezer.preview);
+      await setSongTitle(data.searchDeezer.title);
 
     } catch (e) {
       console.error(e);
@@ -80,14 +75,22 @@ const UserPage = () => {
   const playlistQuestion = questions.playlistQuestions;
   const song = user.songAnswers;
 
+  const styles = {
+    qText: {
+      fontSize: "130%",
+      fontWeight: 500,
+    },
+  };
+
+
   return (
 
-    <div className='container'>
+    <div className='container' >
       <div className='row'>
-        <div className='col-6 mt-3'>
+        <div className='col-lg-6 col-sm-12 mt-3'>
           <img src={user.photo} width={400} height={400}></img>
         </div>
-        <div className='col-6'>
+        <div className='col-lg-6 col-sm-12'>
           <h3 className='display-3 mt-3'>{user.firstName}</h3>
           <h4>{user.age} | {user.pronouns}</h4>
           <p>Interested in {user.interestedIn}.</p>
@@ -100,9 +103,7 @@ const UserPage = () => {
               <img src={Yes}></img>
             </a>
             <a href='#'>
-              {/* <Link to={"/feed"}> */}
                 <img src={No}></img>
-              {/* </Link> */}
             </a>
           </div>
           <div>
@@ -116,72 +117,39 @@ const UserPage = () => {
         </div>
       </div>
       <hr></hr>
-      <div className='row'>
-        <div className='col'>
-          {/* <div className='d-flex justify-content-center'>
-                        <p>{playlistQuestion[0]}</p>
-                        <img src={user.playlistAnswers.one}></img>
-                    </div> */}
-          <div className='d-flex justify-content-center'>
-            <p className='me-3' id={song.four.preview} onClick={findSong}>{songQuestion[0].text}</p>
-            <p>{selectedSong}</p>
+      <div className='row d-flex justify-content-between' style={styles.qText}>
+        <div className='col-lg-6 col-sm-12 p-2 m-2 '>
+          <div className='p-2'>
+            <p className='me-3' id={song.one} onClick={findSong}>{songQuestion[0].text}</p>
+          </div>         
+          <div className='p-2'>
+            <p className='me-3' id={song.two} onClick={findSong}>{songQuestion[1].text}</p>
+          </div>         
+          <div className='p-2'>
+            <p className='me-3' id={song.three} onClick={findSong}>{songQuestion[2].text}</p>
+          </div>         
+          <div className='p-2'>
+            <p className='me-3' id={song.four} onClick={findSong}>{songQuestion[3].text}</p>
+          </div>         
+          <div className='p-2'>
+            <p className='me-3' id={song.five} onClick={findSong}>{songQuestion[4].text}</p>
+          </div>         
+          <div className='p-2'>
+            <p className='me-3' id={song.six} onClick={findSong}>{songQuestion[5].text}</p>
+          </div>         
+          <div className='p-2'>
+            <p className='me-3' id={song.seven} onClick={findSong}>{songQuestion[6].text}</p>
+          </div>         
+          <div className='p-2'>
+            <p className='me-3' id={song.eight} onClick={findSong}>{songQuestion[7].text}</p>
+          </div>         
+        </div>
+        <div className='col-lg-5 col-sm-12 p-2 m-2'>
+            <p>{songTitle}</p>
             <audio controls src={
               selectedSong
             }></audio>
           </div>
-          {/* <div className='d-flex justify-content-center'>
-                        <p>{playlistQuestion[1]}</p>
-                        <img src={user.playlistAnswers.two}></img>
-                    </div> */}
-          {/* <div className='d-flex justify-content-center'>
-                        <p>{songQuestion[1].text}</p>
-                        <audio controls src={song.two.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-center'>
-                        <p>{songQuestion[2].text}</p>
-                        <audio controls src={song.three.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-center'>
-                        <p>{playlistQuestion[2]}</p>
-                        <img src={user.playlistAnswers.three}></img>
-                    </div>
-                    <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[3].text}</p>
-                        <audio controls src={song.four.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[4].text}</p>
-                        <audio controls src={song.five.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[5].text}</p>
-                        <audio controls src={song.six.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[6].text}</p>
-                        <audio controls src={song.seven.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[7].text}</p>
-                        <audio controls src={song.eight.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[8].text}</p>
-                        <audio controls src={song.nine.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[9].text}</p>
-                        <audio controls src={song.ten.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-end'>
-                        <p>{songQuestion[10].text}</p>
-                        <audio controls src={song.eleven.preview}></audio>
-                    </div>
-                    <div className='d-flex justify-content-start'>
-                        <p>{songQuestion[11].text}</p>
-                        <audio controls src={song.twelve.preview}></audio>
-                    </div> */}
-        </div>
       </div>
     </div>
   )

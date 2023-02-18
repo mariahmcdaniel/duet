@@ -28,7 +28,6 @@ const ProfileForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("USERBABY", form)
     try {
       const { data } = await addUser({
         variables: { ...form },
