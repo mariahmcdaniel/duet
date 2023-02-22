@@ -219,7 +219,7 @@ const ProfileForm = () => {
               onChange={handleChange}>
               <option>Friendship</option>
               <option>Relationship</option>
-              <option>Friendship and/or Relationship</option>
+              <option>Friendship and Relationship</option>
             </select>
           </div>
           <button type="submit" className="btn btn-primary m-1 p-2">Submit</button>
