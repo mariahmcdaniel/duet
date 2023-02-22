@@ -32,9 +32,6 @@
   flex-direction: column;
 }
 
-#audioText {
-  text-align: center;
-}
 
 @media only screen
 and (min-device-width : 1201px)
