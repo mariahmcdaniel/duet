@@ -29,6 +29,11 @@
   position: fixed;
   margin-left: calc(50vw + 100px);
   display: inline-flex;
+  flex-direction: column;
+}
+
+#audioText {
+  text-align: center;
 }
 
 @media only screen
