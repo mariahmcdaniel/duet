@@ -4,7 +4,6 @@ import { useQuery } from '@apollo/client';
 import { useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 import { DELETE_USER } from '../../utils/mutations';
-import questions from '../../utils/questions';
 import pin from './assets/pin.png';
 import './style.css';
 
@@ -37,10 +36,6 @@ const MyPage = () => {
     if (!user) {
         return <h3>No User</h3>
     }
-
-    const songQuestion = questions.songQuestions;
-    const playlistQuestion = questions.playlistQuestions;
-    const song = user.songAnswers;
     
     return (
 

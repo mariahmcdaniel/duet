@@ -7,6 +7,7 @@ import questions from '../../utils/questions';
 import Yes from './assets/yes.png';
 import No from './assets/no.png';
 import pin from './assets/pin.png';
+import play from './assets/play-icon.png';
 import './style.css';
 
 const UserPage = () => {
@@ -118,33 +119,49 @@ const UserPage = () => {
       </div>
       <hr></hr>
       <div className='row d-flex justify-content-between' style={styles.qText}>
-        <div className='col-lg-6 col-sm-12 p-2 m-2 '>
-          <div className='p-2'>
-            <p className='me-3' id={song.one} onClick={findSong}>{songQuestion[0].text}</p>
+        <div className='col-lg-8 col-sm-10'>
+          <div className='p-2 songDiv'>
+            <p className='me-3 songText'>{songQuestion[0].text}</p>
+            <h4>{song.one}</h4>
+            <img className='playBtn' src={play} onClick={findSong} id={song.one} alt="play button"/>
           </div>         
-          <div className='p-2'>
-            <p className='me-3' id={song.two} onClick={findSong}>{songQuestion[1].text}</p>
+          <div className='p-2 songDiv'>
+            <p className='me-3 songText'>{songQuestion[1].text}</p>
+            <h4>{song.two}</h4>
+            <img className='playBtn' src={play} onClick={findSong} id={song.two} alt="play button"/>
           </div>         
-          <div className='p-2'>
-            <p className='me-3' id={song.three} onClick={findSong}>{songQuestion[2].text}</p>
+          <div className='p-2 songDiv'>
+            <p className='me-3 songText'>{songQuestion[2].text}</p>
+            <h4>{song.three}</h4>
+            <img className='playBtn' src={play} onClick={findSong} id={song.three} alt="play button"/>
           </div>         
-          <div className='p-2'>
-            <p className='me-3' id={song.four} onClick={findSong}>{songQuestion[3].text}</p>
+          <div className='p-2 songDiv'>
+            <p className='me-3 songText'>{songQuestion[3].text}</p>
+            <h4>{song.four}</h4>
+            <img className='playBtn' src={play} onClick={findSong} id={song.four} alt="play button"/>
           </div>         
-          <div className='p-2'>
-            <p className='me-3' id={song.five} onClick={findSong}>{songQuestion[4].text}</p>
+          <div className='p-2 songDiv'>
+            <p className='me-3 songText'>{songQuestion[4].text}</p>
+            <h4>{song.five}</h4>
+            <img className='playBtn' src={play} onClick={findSong} id={song.five} alt="play button"/>
           </div>         
-          <div className='p-2'>
-            <p className='me-3' id={song.six} onClick={findSong}>{songQuestion[5].text}</p>
+          <div className='p-2 songDiv'>
+            <p className='me-3 songText'>{songQuestion[5].text}</p>
+            <h4>{song.six}</h4>
+            <img className='playBtn' src={play} onClick={findSong} id={song.six} alt="play button"/>
           </div>         
-          <div className='p-2'>
-            <p className='me-3' id={song.seven} onClick={findSong}>{songQuestion[6].text}</p>
+          <div className='p-2 songDiv'>
+            <p className='me-3 songText'>{songQuestion[6].text}</p>
+            <h4>{song.seven}</h4>
+            <img className='playBtn' src={play} onClick={findSong} id={song.seven} alt="play button"/>
           </div>         
-          <div className='p-2'>
-            <p className='me-3' id={song.eight} onClick={findSong}>{songQuestion[7].text}</p>
+          <div className='p-2 songDiv'>
+            <p className='me-3 songText'>{songQuestion[7].text}</p>
+            <h4>{song.eight}</h4>
+            <img className='playBtn' src={play} onClick={findSong} id={song.eight} alt="play button"/>
           </div>         
         </div>
-        <div className='col-lg-5 col-sm-12 p-2 m-2'>
+        <div id="audioDiv" className='col-lg-5'>
             <p>{songTitle}</p>
             <audio controls src={
               selectedSong

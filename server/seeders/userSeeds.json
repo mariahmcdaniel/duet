@@ -1,1 +1,96 @@
 
+[
+  {
+    "firstName":"Mariah",
+    "lastName":"McDaniel",
+    "username":"justduet",
+    "email":"justduet@gmail.com",
+    "password":"password123",
+    "age": 22,
+    "city":"Albuquerque",
+    "state":"NM",
+    "interestedIn":"Friendship",
+    "gender":"Female",
+    "pronouns":"She/Her",
+    "songAnswers":
+    {
+      "one":"racks",
+      "two":"borderline",
+      "three":"Im on a boat",
+      "four":"lucky",
+      "five":"material girl",
+      "six":"cant stop",
+      "seven":"dont worry baby",
+      "eight":"north carolina"
+    },
+    "photo":"https://e-cdns-images.dzcdn.net/images/cover/ad739501984cd5e7dead7136421250fa/250x250-000000-80-0-0.jpg",
+    "playlistAnswers":
+      {
+        "one": 7,
+        "two": 7,
+        "three": 4
+      }
+  },
+  {
+    "firstName":"Sabrina",
+    "lastName":"Halves",
+    "username":"Sabs",
+    "email":"email@gmail.com",
+    "password":"password123",
+    "age": 21,
+    "city":"Nashville",
+    "state":"TN",
+    "interestedIn":"Both",
+    "gender":"Female",
+    "pronouns":"She/Her",
+    "songAnswers":
+    {
+      "one":"What's New? Meg the Stallion",
+      "two":"Eye of the Tiger Survivor",
+      "three":"Bad Day Daniel Powter",
+      "four":"Fabulous Ashley Tisdale",
+      "five":"Hamster Dance",
+      "six":"Flowers Miley Cyrus",
+      "seven":"Just the Two of Us Bill Withers",
+      "eight":"Eye of the Tiger Survivor"
+    },
+    "photo":"https://e-cdns-images.dzcdn.net/images/cover/8f65570c4aefdeb3f86a58c29e6643df/250x250-000000-80-0-0.jpg",
+    "playlistAnswers":
+    {
+      "one": 6,
+      "two": 4,
+      "three": 7
+    }
+  },
+  {
+    "firstName":"Saturday",
+    "lastName":"Afternoon",
+    "username":"pleasework",
+    "email":"duettest@test.com",
+    "password":"password123",
+    "age": 18,
+    "city":"Raleigh",
+    "state":"NC",
+    "interestedIn":"Friendship",
+    "gender":"Female",
+    "pronouns":"She/Her",
+    "songAnswers":
+    {
+      "one":"workout",
+      "two":"seven nation army",
+      "three":"fade into you",
+      "four":"my song 9",
+      "five":"all you need is love",
+      "six":"cant stop",
+      "seven":"dont worry baby",
+      "eight":"north carolina"
+    },
+    "photo":"https://e-cdns-images.dzcdn.net/images/cover/afe6b4e12491ebf87d7a8f70d01882ea/250x250-000000-80-0-0.jpg",
+    "playlistAnswers":
+    {
+      "one": 5,
+      "two": 7,
+      "three": 4
+    }
+    }
+      ]
