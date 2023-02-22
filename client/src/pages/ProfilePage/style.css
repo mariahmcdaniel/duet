@@ -27,7 +27,7 @@
 
 #audioDiv {
   position: fixed;
-  margin-left: calc(60vw + 100px);
+  margin-left: calc(50vw + 100px);
   display: inline-flex;
 }
 
@@ -37,7 +37,7 @@ and (max-device-width : 1800px) {
   
   #audioDiv {
     position: fixed;
-    margin-left: calc(70vw + 100px);
+    margin-left: calc(45vw + 100px);
   }
 
 }
@@ -48,7 +48,7 @@ and (max-device-width : 1200px) {
   
   #audioDiv {
     position: fixed;
-    margin-left: calc(60vw + 100px);
+    margin-left: calc(40vw + 100px);
   }
 
 }
@@ -59,7 +59,7 @@ and (max-device-width : 700px) {
   
   #audioDiv {
     position: fixed;
-    margin-left: calc(40vw + 100px) !important;
+    margin-left: calc(35vw + 100px);
   }
 
 }

@@ -163,6 +163,7 @@ const UserPage = () => {
         </div>
         <div id="audioDiv" className='col-lg-5'>
             <p>{songTitle}</p>
+            <br/>
             <audio controls src={
               selectedSong
             }></audio>
