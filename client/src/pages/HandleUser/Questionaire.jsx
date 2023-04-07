@@ -81,7 +81,7 @@ const Questionaire = () => {
                 <div className="lineQuest"></div>
               </div>
               <div className="form-group">
-                <p className="questQuest">You must sacrifice yourself to say the world from peril. What song is playing in your final battle scene?</p>
+                <p className="questQuest">You must sacrifice yourself to save the world from peril. What song is playing in your final battle scene?</p>
                 <input
                   placeholder="Answer here..."
                   className="form-control"
