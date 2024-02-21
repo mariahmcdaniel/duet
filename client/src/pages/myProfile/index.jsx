@@ -42,9 +42,9 @@ const MyPage = () => {
         <div className='container'>
             <div className='row'>
                 <div className='col-lg-6 col-sm-12 mt-3'>
-                    <img src={user.photo} width={400} height={400}></img>
+                    <img src={user.photo} height={400}></img>
                 </div>
-                <div className='col-lg-6 col-sm-12'>
+                <div id='profInfo' className='col-lg-6 col-sm-12'>
                     <h3 className='display-3 mt-3'>{user.firstName}</h3>
                     <h4>{user.age} | {user.pronouns}</h4>
                     <p>Interested in {user.interestedIn}.</p>
