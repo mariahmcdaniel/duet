@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import './style.css';
 
 const ProfileForm = () => {
   // const navigate = useNavigate();
@@ -76,6 +77,19 @@ const ProfileForm = () => {
               name="lastName"
               value={form.lastName}
               onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="ageSelect" className="form-label mt-4">Age</label>
+            <input
+              type="number"
+              min="18"
+              placeholder="18"
+              className="form-control"
+              id="ageSelect"
+              name="age"
+              value={form.age}
+              onChange={handleChange}>
+            </input>
           </div>
           <div className="form-group">
             <label htmlFor="usernameinput" className="form-label mt-4">Username</label>
@@ -161,51 +175,6 @@ const ProfileForm = () => {
               <option>Non-Binary</option>
               <option>Prefer not to say</option>
               <option>Other</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="ageSelect" className="form-label mt-4">Age</label>
-            <select
-              multiple=""
-              className="form-select"
-              id="ageSelect"
-              name="age"
-              value={form.age}
-              onChange={handleChange}>
-              <option>18</option>
-              <option>19</option>
-              <option>20</option>
-              <option>21</option>
-              <option>22</option>
-              <option>23</option>
-              <option>24</option>
-              <option>25</option>
-              <option>26</option>
-              <option>27</option>
-              <option>28</option>
-              <option>29</option>
-              <option>30</option>
-              <option>31</option>
-              <option>32</option>
-              <option>33</option>
-              <option>34</option>
-              <option>35</option>
-              <option>36</option>
-              <option>37</option>
-              <option>38</option>
-              <option>39</option>
-              <option>40</option>
-              <option>41</option>
-              <option>42</option>
-              <option>43</option>
-              <option>44</option>
-              <option>45</option>
-              <option>46</option>
-              <option>47</option>
-              <option>48</option>
-              <option>49</option>
-              <option>50</option>
-
             </select>
           </div>
           <div className="form-group">
