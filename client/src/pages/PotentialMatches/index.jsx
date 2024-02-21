@@ -8,6 +8,7 @@ import Yes from './assets/yes.png';
 import No from './assets/no.png';
 import './style.css';
 
+// resolving err
 
 const UserList = () => {
 
